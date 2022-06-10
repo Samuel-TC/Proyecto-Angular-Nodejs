@@ -3,9 +3,12 @@ import express, { json } from 'express';
 import config from './config';
 const cors = require('cors');
 
-import loginRouter from './routers/login.routers'
+import loginRouter from './routers/login.routers';
+import departmentRouter from './routers/department.routers';
+import locationRouter from './routers/location.router';
+import userRouter from './routers/user.routers';
 
-const app = express()
+const app = express();
 
 // settings
 app.set('port', config.port);
@@ -18,5 +21,10 @@ app.use(express.urlencoded({extended: false}))
 app.use(cors({
     origin:'http://localhost:4200'
 }));
-app.use(loginRouter)
-export default app
+
+app.use(loginRouter);
+app.use(departmentRouter);
+app.use(locationRouter);
+app.use(userRouter);
+
+export default app;

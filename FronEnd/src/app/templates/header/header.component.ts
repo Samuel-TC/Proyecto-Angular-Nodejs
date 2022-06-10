@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { left } from '@popperjs/core';
 import { AlertsService } from '../../services/alerts/alerts.service'
 
 @Component({
@@ -11,8 +12,10 @@ export class HeaderComponent implements OnInit {
 
   constructor( private router: Router, private alert: AlertsService ) { }
 
-  ngOnInit(): void {
+  value:any='';
 
+  ngOnInit(): void {
+     this.value =   localStorage.getItem("id");
   }
 
   exit(){//seccion
@@ -21,5 +24,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['login'])
     this.alert.alertError("Logout!");
   }
+
+  
 
 }

@@ -1,0 +1,26 @@
+<app-header></app-header>
+    <div class="container">
+        <div class="center">
+            <article class="card">
+                
+                <div class="card-inner">
+                    <form [formGroup]="loginForm"  ngNativeValidate>
+                        <label class="title">Department</label>
+                        <label>ID DEPARTMENT</label>
+                        <input type="text"  id="login" placeholder="" formControlName="user"  required>
+                        <label>DESCRIPTION</label>
+                        <input type="text"  id="login" placeholder="" formControlName="user"  required>
+                        <label>DISTRICT</label>
+                        <input type="text"  id="login" placeholder="" formControlName="user"  required>
+                        <label>COUNTRY</label>
+                        <input type="text"  id="login" placeholder="" formControlName="user"  required>
+                        <button type="submit" class="mask flex-center rgba-blue-light">ADD</button>
+                    </form>
+                    <!-- Remind Passowrd -->
+                   
+                </div>
+               
+            </article>
+        </div>
+    </div>
+<app-footer></app-footer>

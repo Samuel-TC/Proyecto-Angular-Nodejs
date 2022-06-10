@@ -11,6 +11,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './views/menu/menu.component';
+import { DepartamentComponent } from './views/department/departament.component';
+import { ListDepartmentComponent } from './views/list-department/list-department.component';
+import { EditDepartmentComponent } from './views/edit-department/edit-department.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { MenuComponent } from './views/menu/menu.component';
     LoginComponent,
     FooterComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    DepartamentComponent,
+    ListDepartmentComponent,
+    EditDepartmentComponent
   ],
   imports: [
     BrowserModule,
