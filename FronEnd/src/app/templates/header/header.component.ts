@@ -25,6 +25,17 @@ export class HeaderComponent implements OnInit {
     this.alert.alertError("Logout!");
   }
 
+  department(){
+    this.router.navigate(['list/department'])
+  }
+
+  user(){
+    this.router.navigate(['list/user'])
+  }
+
+  menu(){
+    this.router.navigate(['menu'])
+  }
   
 
 }

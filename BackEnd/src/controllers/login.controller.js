@@ -62,14 +62,15 @@ function generateAccessToken(user) {
 
 //Validate Token
 export const validateToken = (req, res, next) => {
+    
     const accessToken = req.get('Authorization')
     if (!accessToken) res.send('Access denied');
 
     console.log(accessToken)
-    jwt.verify(accessToken, process.env.SECRET, (err, user) => {
+    jwt.verify(accessToken, process.env.JWT_KEY, (err) => {
         if (err) {
             res.send('Accces denied');
-            console.log("Invalido")
+            console.log(err)
         } else {
             next();
         }

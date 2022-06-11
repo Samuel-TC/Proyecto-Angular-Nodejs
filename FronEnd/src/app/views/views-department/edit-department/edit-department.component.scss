@@ -5,15 +5,15 @@ $font-text-label: 1.1em sans-serif;
 $font-text-title:4.2em sans-serif;
 
 .center{
-    margin-top: 11%;
-    margin-left: 33%;
+    margin-top: 9%;
+    margin-left: 21%;
     /* IMPORTANTE */
     text-align: center;   
 }
 
 .card{
-    width: 450px;
-    height: 550px;
+    width: 750px;
+    height: 650px;
     position: relative;
    
 }
@@ -29,7 +29,7 @@ $font-text-title:4.2em sans-serif;
     text-align: center;
 
     button{
-        margin-top: 40px;
+        margin-top: 60px;
         width: 85%;
         margin-top: 35px;
         background: rgb(255, 255, 255);
@@ -102,50 +102,11 @@ $font-text-title:4.2em sans-serif;
     .title{
         font: $font-text-title;
         margin-top: 25px;
-        margin-bottom: 70px;
+        margin-bottom: 40px;
        // font-weight:550;
         text-align: center;
     }
 
-}
-
-.circle{
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(#150036,#282828);
-    border-radius: 50%;
-    position: absolute;  
-}
-
-.circle:nth-child(1){
-    width: 150px;
-    height: 150px;
-    top: -40px;
-    left: -40px;
-}
-
-.circle:nth-child(2){
-    width: 130px;
-    height: 130px;
-    bottom: 205px;
-    right: -30px;
-}
-
-.circle:nth-child(3){
-    width: 150px;
-    height: 150px;
-    top: 30px;
-    left: 280px;
-}
-
-.circle:nth-child(4){
-    top: 470px;
-    left: 40px;
-}
-
-.circle:nth-child(5){
-    top: 250px;
-    left:100px;
 }
 
 .underlineHover{
@@ -158,11 +119,33 @@ $font-text-title:4.2em sans-serif;
     padding: 0px;
     padding-top: 15px;
 }
-.margin1{
-    margin-top: 30px;
+
+
+select:focus{
+        background-color: white;
+        //border: 2px solid rgb(6, 6, 50);
+        //background: linear-gradient(90deg, var(--c1, #090521ea), var(--c2, #662fe7ea) 51%, var(--c1, #9491eee9)) var(--x, 0)/ 200%;
 }
 
-.link{
-    
-    width: 100%;
+select{ 
+        margin-top: 10px;
+        width: 85%;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(14, 0, 19);
+        line-height: 0;
+        font-size: 20px;
+        font-family: sans-serif;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 12px 5px ;
+        border-radius: 60px;
+        color: rgb(14, 0, 19);
+        font-weight: 100;
+        letter-spacing: 0.01em;
+        position: relative;
+        z-index: 1;
+}
+ 
+.margin{
+    margin-top: 40px;
 }

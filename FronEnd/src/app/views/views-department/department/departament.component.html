@@ -1,0 +1,35 @@
+<app-header></app-header>
+    <div class="container">
+        <div class="center">
+            <article class="card">
+
+                <div class="card-inner">
+                    <form [formGroup]="newForm" (ngSubmit)="postForm(newForm.value)" ngNativeValidate>
+                        <label class="title">Department</label>
+
+                        <label>DESCRIPTION</label>
+                        <input type="text" id="descripcion" placeholder="" formControlName="descripcion" required>
+
+                        <label>DISTRICT</label>
+                        <select type="text" id="idDistrito" placeholder="" formControlName="idDistrito" required>
+                            <option value="" selected>Select</option>
+                            <option *ngFor="let distrito of distritos " value="{{distrito.idDistrito}}">
+                                {{distrito.descripcion}}</option>
+                        </select>
+
+                        <label>COUNTRY</label>
+                        <select type="text" id="idPais" placeholder="" formControlName="idPais" required>
+                            <option value="" selected>Select</option>
+                            <option *ngFor="let pais of paises " value="{{pais.idPais}}">{{pais.descripcion}}</option>
+                        </select>
+
+                        <div class="margin"></div>
+                        <button type="submit" class="mask flex-center rgba-blue-light">ADD</button>
+                        
+                    </form>
+
+                </div>
+            </article>
+        </div>
+    </div>
+<app-footer></app-footer>

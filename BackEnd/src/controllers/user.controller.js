@@ -4,11 +4,20 @@ import { getConnection, sql, querys } from "../database"
 //GET all user
 export const getUsers = async (req, res) => {
 
+    const { cedula } = req.params
+    const Pag =cedula;
+    console.log(cedula);
+    const tamPag=9
+
     try {
-        const pool = await getConnecteion(); // Promise connection
-        const result = await pool.request().query(querys.getALLUser);// Create Procedure
+        const pool = await getConnection(); // Promise connection
+        const result = await pool.request()
+        .input('Pag', Pag)
+        .input('tamPag', tamPag)// Create Procedure
+        .query(querys.getALLUser)
+        
         res.json(result.recordset);
-        console.log("List Request") 
+        console.log(result.recordset) 
    } catch (error) {
        res.send(error.message)
    }
@@ -18,11 +27,12 @@ export const getUsers = async (req, res) => {
 export const getUserByID = async (req, res) => {
 
     const { cedula } = req.params
-
+   
     const pool = await getConnection();
     const result= await pool.request()
         .input('cedula', cedula)
         .query(querys.getUserID);
+        console.log(cedula)
     res.send(result.recordset[0])
 };
 
@@ -42,10 +52,11 @@ export const deleteUserById = async (req, res) => {
 export const updateUserById = async (req, res) => {
     
     const { cedula, nombre, apellido1, apellido2, correo, fechaNacimiento, idSexo, celular, idDepartamento, idDistrito }= req.body;// save data 
+    
  
     try {
         
-        const pool = await getConnecteion();
+        const pool = await getConnection();
         await pool.request()
             .input('cedula', sql.NVarChar(9), cedula)
             .input("nombre", sql.NVarChar(30), nombre)
@@ -57,7 +68,7 @@ export const updateUserById = async (req, res) => {
             .input('celular', sql.NVarChar(15), celular)
             .input('idDepartamento', sql.TinyInt, idDepartamento)
             .input('idDistrito', sql.SmallInt, idDistrito)
-            .query(querys.updateDepartment); // Create procedure
+            .query(querys.updateUser); // Create procedure
         res.json({  idDepartamento, descripcion, idDistrito, idPais });
   } catch (error) {
     res.send(error.message)
@@ -68,7 +79,7 @@ export const updateUserById = async (req, res) => {
 export const getSexs = async (req, res) => {
 
     try {
-        const pool = await getConnecteion(); // Promise connection
+        const pool = await getConnection(); // Promise connection
         const result = await pool.request().query(querys.getSex);// Create Procedure
         res.json(result.recordset);
         console.log("List Request") 

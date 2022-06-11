@@ -1,0 +1,67 @@
+<app-header></app-header>
+    <div class="container">
+        <div class="center">
+            <article class="card">
+                <div class="card-inner">
+
+                    <label class="title">Edit User</label>
+
+                        <form [formGroup]="editForm" (ngSubmit)="putForm(editForm.value)" ngNativeValidate>
+                            <div class="row">
+                                <div class="col-6">
+
+                                    <label>NOMBRE</label>
+                                    <input type="text" id="nombre" placeholder="" formControlName="nombre" required>
+
+                                    <label>PRI APELLIDO</label>
+                                    <input type="text" id="apellido1" placeholder="" formControlName="apellido1" required>
+
+                                    <label>SEG APELLIDO</label>
+                                    <input type="text" id="apellido2" placeholder="" formControlName="apellido2" required>
+
+                                    <label>SEXO</label>
+                                    <select type="text" id="idSexo" placeholder="" formControlName="idSexo" required>
+                                        <option value="" selected>Select</option>
+                                        <option *ngFor="let sexo of sexos " value="{{sexo.idSexo}}">{{sexo.descripcion}}
+                                        </option>
+                                    </select>
+
+                                    <label>FOTO</label>
+                                    <input type="file" id="foto" placeholder="" required>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <label>FECHA NACIMIENTO</label>
+                                    <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento" required>
+
+                                    <label>DEPARTAMENTO</label>
+                                    <select type="text" id="idDepartamento" placeholder="" formControlName="idDepartamento"
+                                        required>
+                                        <option value="" selected>Select</option>
+                                        <option *ngFor="let departamento of departamentos "
+                                            value="{{departamento.idDepartamento}}">{{departamento.descripcion}}</option>
+                                    </select>
+
+                                    <label>CORREO</label>
+                                    <input type="text" id="correo" placeholder="" formControlName="correo" required>
+
+                                    <label>NUMERO CEL</label>
+                                    <input type="text" id="celular" placeholder="" formControlName="celular" required>
+
+                                    <label>DISTRICT</label>
+                                    <select type="text" id="idDistrito" formControlName="idDistrito" required>
+                                        <option value="" selected>Select</option>
+                                        <option *ngFor="let distrito of distritos " value="{{distrito.idDistrito}}">
+                                            {{distrito.descripcion}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="margin"></div>
+                            <button type="submit" class="mask flex-center rgba-blue-light">EDIT</button>
+                        </form>
+                </div>
+            </article>
+        </div>
+    </div>
+<app-footer></app-footer>

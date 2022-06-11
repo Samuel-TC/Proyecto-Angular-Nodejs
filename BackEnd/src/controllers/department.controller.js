@@ -4,7 +4,7 @@ import { getConnection, sql, querys } from "../database"
 // GET all department
 export const getDepartments = async (req, res) => {
     try {
-        const pool = await getConnecteion(); // Promise connection
+        const pool = await getConnection(); // Promise connection
         const result = await pool.request().query(querys.getAllDepartment);// Create Procedure
         res.json(result.recordset);
         console.log("List Request") 
@@ -22,6 +22,7 @@ export const getDepartmentsByID = async (req, res) => {
         .input('idDepartamento', idDepartamento)
         .query(querys.getDepartmentID);
     res.send(result.recordset[0])
+    
 };
 
 //ADD new department
@@ -57,11 +58,11 @@ export const deleteDepartmentById = async (req, res) => {
 //UPDATE department by ID
 export const updateDepartmentById = async (req, res) => {
     const { descripcion, idDistrito, idPais }= req.body;// save data 
-    let { idDepartamento } =  req.body
- 
+    let { idDepartamento } =  req.params
+    console.log(idDepartamento, descripcion, idDistrito, idPais);
     try {
         
-        const pool = await getConnecteion();
+        const pool = await getConnection();
         await pool.request()
             .input("idDepartamento", sql.TinyInt, idDepartamento)
             .input("descripcion", sql.NVarChar(50), descripcion)

@@ -1,31 +1,31 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-dark ">
+
     <div class="container-fluid"> <button class="navbar-toggler navbar-toggler-right border-0 p-0" type="button"
         data-toggle="collapse" data-target="#navbar20">
         <p class="navbar-brand text-white mb-0">
           <i class="fa d-inline fa-lg fa-stop-circle"></i> BBBOOTSTRAP
         </p>
       </button>
+
       <div class="collapse navbar-collapse" id="navbar20">
+
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" href="#">HOME</a> </li>
+          <li class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" href="menu()">HOME</a> </li>
+          <li class="nav-item mx-1"> <a class="nav-link" href="#"><i class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
           <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-dropbox fa-fw fa-lg"></i>
-            </a> </li>
+          <i class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
           <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-dropbox fa-fw fa-lg"></i>
-            </a> </li>
+          <i class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
           <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-dropbox fa-fw fa-lg"></i>
-            </a> </li>
-          <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-dropbox fa-fw fa-lg"></i>
-            </a> </li>
-          <li class="nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" href="#">USERS</a> </li>
-          <li class="nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" href="#">DEPARTMENTS</a> </li>
-          <li class="nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" href="#">REQUEST</a> </li>
-          <li class="nav-item"><a class="nav-link" style="color: rgb(3, 3, 53);" (click)="exit()">LOGOUT</a></li>
+          <i class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
+
+          <li class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" (click)="user()">USERS</a> </li>
+          <li class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" (click)="department()">DEPARTMENTS</a> </li>
+          <li class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" href="#">REQUEST</a> </li>
+          <li class="btn nav-item"><a class="nav-link" style="color: rgb(3, 3, 53);" (click)="exit()">LOGOUT</a></li>
           <li class="nav-item"> <a class="nav-link" href="#"></a> </li>
+
         </ul>
         <p class="d-none d-md-block lead mb-0 text-white"> <i class="fa d-inline fa-lg fa-stop-circle"></i> <b> </b>
         </p>
@@ -35,8 +35,7 @@
           <div class="circle"> </div> 
            
           <li class="nav-item">  <a class="nav-link" href="#">  {{value}} </a > </li>
-         
-      
+
       </div>
     </div>
   </nav>

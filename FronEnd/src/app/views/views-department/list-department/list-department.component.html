@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+    <div class="container">
+
+        <label class="title">Department</label>
+        <button class="mask flex-center rgba-blue-light" (click)="addDepartment()">ADD</button>
+        <input type="text" id="descripcion" placeholder="" formControlName="descripcion" required>
+        <button class="btn btn-success" (click)="ant()">SEARCH</button>
+
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="hover table table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Distrito</th>
+                    <th scope="col">Pais</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let department of departments">
+                    <th scope="row">{{ department.idDepartamento }}</th>
+                    <td (click)="editDepartment(department.idDepartamento)">{{ department.descripcion }}</td>
+                    <td (click)="editDepartment(department.idDepartamento)">{{ department.idDistrito }}</td>
+                    <td (click)="editDepartment(department.idDepartamento)">{{ department.idPais }}</td>
+                    <td><button class="btn btn-success" (click)="deleteDepartment(department.idDepartamento)"
+                            style="background-color: rgb(252, 102, 102); padding-left: 20px; padding-right: 70px;">DELETE</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-success" (click)="ant()">Ant</button>
+        <button class="btn btn-success" (click)="sig()">Sig</button>
+        
+    </div>
+
+<app-footer></app-footer>

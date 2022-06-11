@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit {
   errorStatus: boolean = false;
   errorMs: any = ""
 
-    //Validad Campos requeridos
-    loginForm = new FormGroup({
-      user: new FormControl('', [Validators.required, Validators.email,Validators.minLength(9),Validators.maxLength(35)],),
-      password: new FormControl('', [Validators.required,Validators.minLength(7),Validators.maxLength(20)])
-    });
+  //Validad Campos requeridos
+  loginForm = new FormGroup({
+    user: new FormControl('', [Validators.required, Validators.email, Validators.minLength(9), Validators.maxLength(35)],),
+    password: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(20)])
+  });
 
   onLogin(form: LoginI) {
     if (this.loginForm.valid) {
@@ -33,9 +33,9 @@ export class LoginComponent implements OnInit {
 
         if (dataResponse.dataUser.sms == "authorization") {
           this.alert.alertSuccess("login successful!");
-         
+
           localStorage.setItem("token", data.dataUser.accessToken);
-          localStorage.setItem("id",data.dataUser.user.username)
+          localStorage.setItem("id", data.dataUser.user.username)
           this.router.navigate(['menu'])
         } else {
           this.errorStatus = true;
@@ -44,18 +44,19 @@ export class LoginComponent implements OnInit {
         }
       });
     } else {
-      
-      if(this.loginForm.get("password")?.value.length <= 7){
+
+      if (this.loginForm.get("password")?.value.length <= 7) {
         this.errorStatus = true;
         this.errorMs = "password is too short! (7-20)"
-      }else{if(this.loginForm.get("password")?.value.length >= 20){
-        this.errorStatus = true;
-        this.errorMs = "password is too  long! (7-20)"
-      }else{
-        this.errorStatus = true;
-        this.errorMs = "incorrect format username: example@gmail.com (9-35)"
-      }
-  
+      } else {
+        if (this.loginForm.get("password")?.value.length >= 20) {
+          this.errorStatus = true;
+          this.errorMs = "password is too  long! (7-20)"
+        } else {
+          this.errorStatus = true;
+          this.errorMs = "incorrect format username: example@gmail.com (9-35)"
+        }
+
       }
     }
   }
