@@ -3,10 +3,10 @@
     <div class="container">
     <label class="title">Users</label>
     
-    <input type="text"  id="descripcion" placeholder="" formControlName="descripcion"  required>
+    <input type="text"   placeholder=""  required>
     <button  class="btn btn-success" (click)="ant()">SEARCH</button>
 
-    <table datatable  [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="hover table table">
+    <table class=" table table-hover">
         <thead>
             <tr>
             <th scope="col">Cedula</th>
@@ -24,7 +24,7 @@
             <td (click)="editUser(user.cedula)" >{{ user.apelllido1 }}</td>
             <td (click)="editUser(user.cedula)" >{{ user.celular }}</td>
             <td (click)="editUser(user.cedula)" >{{ user.correo }}</td>
-            <td><button  class="btn btn-success " style="background-color: rgb(252, 102, 102); padding-left: 20px; padding-right: 70px;" (click)="deleteUser(user.cedula)">DELETE</button></td>
+            <td><button  class="btn btn-success " style="background-color: rgb(162, 2, 2); padding-left: 20px; padding-right: 70px;" (click)="deleteUser(user.cedula)">DELETE</button></td>
             </tr>
         </tbody>
     </table>

@@ -4,10 +4,10 @@
 
         <label class="title">Department</label>
         <button class="mask flex-center rgba-blue-light" (click)="addDepartment()">ADD</button>
-        <input type="text" id="descripcion" placeholder="" formControlName="descripcion" required>
+        <input type="text"  placeholder=""  required>
         <button class="btn btn-success" (click)="ant()">SEARCH</button>
 
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="hover table table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -24,7 +24,7 @@
                     <td (click)="editDepartment(department.idDepartamento)">{{ department.idDistrito }}</td>
                     <td (click)="editDepartment(department.idDepartamento)">{{ department.idPais }}</td>
                     <td><button class="btn btn-success" (click)="deleteDepartment(department.idDepartamento)"
-                            style="background-color: rgb(252, 102, 102); padding-left: 20px; padding-right: 70px;">DELETE</button>
+                            style="background-color: rgb(130, 34, 34); padding-left: 20px; padding-right: 70px;">DELETE</button>
                     </td>
                 </tr>
             </tbody>

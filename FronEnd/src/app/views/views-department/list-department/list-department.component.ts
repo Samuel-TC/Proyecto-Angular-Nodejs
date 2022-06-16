@@ -15,7 +15,6 @@ import { DepartmentI } from '../../../models/department.interface'
 export class ListDepartmentComponent implements OnInit, OnDestroy {
 
   departments: DepartmentI[] = [];
-  dtOptions: DataTables.Settings = {};
   dtTrigger: any = new Subject();
 
   constructor(private api: DepartmentService, private router: Router, private alert: AlertsService) { }
@@ -25,13 +24,7 @@ export class ListDepartmentComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 8,
-      language: {
-        url: '//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json'
-      }
-    }
+
     let token = this.getToken();
     this.api.getAllDepartment(token).subscribe(res => {
       this.departments = res;
@@ -53,6 +46,11 @@ export class ListDepartmentComponent implements OnInit, OnDestroy {
     this.api.deleteDepartmentById(id, this.getToken()).subscribe(data => {
       console.log("Eliminado");
     })
+    this.api.getAllDepartment(this.getToken()).subscribe(res => {
+      this.departments = res;
+      this.dtTrigger.next();
+    });
+
     this.api.getAllDepartment(this.getToken()).subscribe(res => {
       this.departments = res;
       this.dtTrigger.next();

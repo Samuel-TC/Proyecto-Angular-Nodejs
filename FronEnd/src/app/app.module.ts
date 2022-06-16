@@ -19,6 +19,7 @@ import { ListDepartmentComponent } from './views/views-department/list-departmen
 import { EditDepartmentComponent } from './views/views-department/edit-department/edit-department.component';
 import { EditUserComponent } from './views/views-user/edit-user/edit-user.component';
 import { ListUserComponent } from './views/views-user/list-user/list-user.component';
+import { RequestComponent } from './views/views-request/request/request.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ListUserComponent } from './views/views-user/list-user/list-user.compon
     ListDepartmentComponent,
     EditDepartmentComponent,
     EditUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,

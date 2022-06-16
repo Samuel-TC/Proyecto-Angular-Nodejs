@@ -17,24 +17,17 @@ export class ListUserComponent implements OnInit,OnDestroy {
 
   Pag:any=1;
   users: UserI[] = [];
-  dtOptions: DataTables.Settings = {};
-  dtTrigger:any = new Subject();
+
 
   ngOnDestroy(): void {
 
   }
 
   ngOnInit(): void {
-    this.dtOptions={
-      pagingType: 'full_numbers',
-      pageLength:8,
-      language:{
-        url:'//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json'
-      }
-    }
+
     this.api.getAllUsers(this.Pag,this.getToken()).subscribe(res => {
       this.users = res;
-      this.dtTrigger.next();
+     
     });
   }
 
@@ -49,7 +42,7 @@ export class ListUserComponent implements OnInit,OnDestroy {
     })
     this.api.getAllUsers(this.Pag,this.getToken()).subscribe(res => {
       this.users = res;
-      this.dtTrigger.next();
+      
     });
     this.alert.alertSuccess("Deleted User!")
   }
@@ -62,7 +55,7 @@ export class ListUserComponent implements OnInit,OnDestroy {
     this.Pag = this.Pag+1
     this.api.getAllUsers(this.Pag,this.getToken()).subscribe(res => {
       this.users = res;
-      this.dtTrigger.next();
+      
     });
   }
   ant(){
@@ -70,7 +63,7 @@ export class ListUserComponent implements OnInit,OnDestroy {
       this.Pag = this.Pag-1
       this.api.getAllUsers(this.Pag,this.getToken()).subscribe(res => {
         this.users = res;
-        this.dtTrigger.next();
+       
       });
     }
   }

@@ -34,7 +34,8 @@ export class EditDepartmentComponent implements OnInit {
   ngOnInit(): void {
 
     let idDepartment = this.active.snapshot.paramMap.get('id');
-
+    console.log(idDepartment);
+    
     this.apiDepartment.getAllDistric(this.getToken()).subscribe(res => {
       this.distritos = res;
     });
