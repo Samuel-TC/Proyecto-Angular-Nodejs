@@ -23,4 +23,12 @@ export const querys ={
     deleteUser: "eliminar_usuarios @cedula",
     getSex: "EXEC listar_sexos",
 
+    //REQUEST
+    getALLRequest: "EXEC pa_listra_solicitudes",
+    getRequestID: "pa_buscar_solicitud_id @idSolicitud",
+    createRequest: "EXEC pa_crear_solicitud @fechaHora, @idUsuario, @palabraClave, @asuntoDetallado, @cantidadCambios, @idClasificador ,@idRespuesta ,@detalleRespuesta ,@fechaHoraRespuesta ,@idUsuarioRespuesta ,@cantidadArchivos",
+    updateRequestID: "EXEC pa_actualizar_solicitud_id @idSolicitud ,@fechaHora,  @idUsuario, @palabraClave ,@asuntoDetallado ,@cantidadCambios ,@idClasificador ,@idRespuesta ,@detalleRespuesta ,@fechaHoraRespuesta ,@idUsuarioRespuesta ,@cantidadArchivos ",
+    deleteRequest: "EXEC pa_eliminar_solicitud_id @idSolicitud",
+    getAllClasificator: "EXEC pa_listar_calsificadores",
+
 }
