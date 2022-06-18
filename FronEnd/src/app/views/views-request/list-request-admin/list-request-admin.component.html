@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+    <div class="container">
+
+        <label class="title">Request</label>
+        <button class="mask flex-center rgba-blue-light" (click)="addRequest()">ADD</button>
+        <input type="text"  placeholder=""  required>
+        <button class="btn btn-success" (click)="ant()">SEARCH</button>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Palabra Clave</th>
+                    <th scope="col">Cambios</th>
+                    <th scope="col">Archivos</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let request of requests">
+                    
+                    <th scope="row">{{ request.idSolicitud }}</th>
+                    <td (click)="editRequest(request.idSolicitud)">{{ request.fechaHora }}</td>
+                    <td (click)="editRequest(request.idSolicitud)">{{ request.idUsuario }}</td>
+                    <td (click)="editRequest(request.idSolicitud)">{{ request.palabraClave }}</td>
+                    <td (click)="editRequest(request.idSolicitud)">{{ request.cantidadCambios }}</td>
+
+                    <td><button class="btn btn-success" (click)="verArchivos(request.idSolicitud)"
+                            style="background-color: rgb(130, 34, 34); padding-left: 20px; padding-right: 55px;">VER</button>
+                            
+                    </td>
+                    <td><button class="btn btn-success" (click)="deleteRequest(request.idSolicitud)"
+                        style="background-color: rgb(130, 34, 34); padding-left: 20px; padding-right: 70px;">DELETE</button>
+                        
+                </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-success" (click)="ant()">Ant</button>
+        <button class="btn btn-success" (click)="sig()">Sig</button>
+        
+    </div>
+
+<app-footer></app-footer>

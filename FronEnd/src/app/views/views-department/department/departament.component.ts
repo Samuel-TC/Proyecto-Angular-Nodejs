@@ -34,12 +34,15 @@ export class DepartamentComponent implements OnInit {
   });
 
   ngOnInit(): void {
+
     this.apiDepartment.getAllContrys(this.getToken()).subscribe(res =>{
           this.paises=res;
     });
+
     this.apiDepartment.getAllDistric(this.getToken()).subscribe(res =>{
       this.distritos=res;
-});
+    });
+    
   }
 
   postForm(form:DepartmentI){

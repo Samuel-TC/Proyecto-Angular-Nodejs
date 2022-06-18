@@ -20,9 +20,10 @@
           <li class="nav-item mx-1"> <a class="nav-link" href="#">
           <i class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
 
-          <li class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" (click)="user()">USERS</a> </li>
-          <li class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" (click)="department()">DEPARTMENTS</a> </li>
-          <li class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" href="#">REQUEST</a> </li>
+          <li *ngIf ="rool=='2'" class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" (click)="user()">USERS</a> </li>
+          <li *ngIf ="rool=='2'" class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" (click)="department()">DEPARTMENTS</a> </li>
+          
+          <li  class="btn nav-item"> <a class="nav-link" style="color: rgb(3, 3, 53);" (click)="request()">REQUEST</a> </li>
           <li class="btn nav-item"><a class="nav-link" style="color: rgb(3, 3, 53);" (click)="exit()">LOGOUT</a></li>
           <li class="nav-item"> <a class="nav-link" href="#"></a> </li>
 
@@ -32,6 +33,24 @@
      
           <li class="margin"></li>
        
+          <li *ngIf ="rool=='1'" class="nav-item mx-1"> <a class="nav-link" href="#">
+            <i *ngIf ="rool=='1'" class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
+            <li *ngIf ="rool=='1'" class="nav-item mx-1"> <a class="nav-link" href="#">
+              <i *ngIf ="rool=='1'"  class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
+              <li *ngIf ="rool=='1'" class="nav-item mx-1"> <a class="nav-link" href="#">
+                <i *ngIf ="rool=='1'" class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
+                <li *ngIf ="rool=='1'" class="nav-item mx-1"> <a class="nav-link" href="#">
+                  <i *ngIf ="rool=='1'" class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
+                  <li *ngIf ="rool=='1'" class="nav-item mx-1"> <a class="nav-link" href="#">
+                    <i *ngIf ="rool=='1'" class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
+                    <li *ngIf ="rool=='1'" class="nav-item mx-1"> <a class="nav-link" href="#">
+                      <i *ngIf ="rool=='1'" class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
+                      <li *ngIf ="rool=='1'" class="nav-item mx-1"> <a class="nav-link" href="#">
+                        <i  *ngIf ="rool=='1'"class="fa fa-dropbox fa-fw fa-lg"></i></a> </li>
+                      
+                   
+
+
           <div class="circle"> <img src="https://www.marketingmuses.com/wp-content/uploads/2018/01/invis-user.png" alt="Trulli" ></div> 
            
           <li class="nav-item">  <a class="nav-link" href="#">  {{value}} </a > </li>

@@ -26,9 +26,15 @@ export const querys ={
     //REQUEST
     getALLRequest: "EXEC pa_listra_solicitudes",
     getRequestID: "pa_buscar_solicitud_id @idSolicitud",
-    createRequest: "EXEC pa_crear_solicitud @fechaHora, @idUsuario, @palabraClave, @asuntoDetallado, @cantidadCambios, @idClasificador ,@idRespuesta ,@detalleRespuesta ,@fechaHoraRespuesta ,@idUsuarioRespuesta ,@cantidadArchivos",
-    updateRequestID: "EXEC pa_actualizar_solicitud_id @idSolicitud ,@fechaHora,  @idUsuario, @palabraClave ,@asuntoDetallado ,@cantidadCambios ,@idClasificador ,@idRespuesta ,@detalleRespuesta ,@fechaHoraRespuesta ,@idUsuarioRespuesta ,@cantidadArchivos ",
+    createRequest: "EXEC pa_crear_solicitud  @idUsuario, @palabraClave, @asuntoDetallado, @idClasificador ,@idRespuesta ,@detalleRespuesta ,@idUsuarioRespuesta ,@cantidadArchivos",
+    updateRequestID: "EXEC pa_actualizar_solicitud_id @idSolicitud , @idUsuario, @palabraClave ,@asuntoDetallado ,@idClasificador ,@idRespuesta ,@detalleRespuesta ,@idUsuarioRespuesta ,@cantidadArchivos ",
     deleteRequest: "EXEC pa_eliminar_solicitud_id @idSolicitud",
     getAllClasificator: "EXEC pa_listar_calsificadores",
+    getRequestIDUser: "pa_listra_solicitudes_idUsuario @idUsuario",
+
+    //FILE
+    deleteFilebyID: "EXEC pa_eliminar_archivo_solicitud @idArchivo",
+    getFileIDSolicitud: "pa_listar_archivos_idSolicitud @idSolicitud",
+    createFile: "EXEC pa_insertar_archivo_solicitud @idSolicitud, @linea, @archivo, @comentario"
 
 }

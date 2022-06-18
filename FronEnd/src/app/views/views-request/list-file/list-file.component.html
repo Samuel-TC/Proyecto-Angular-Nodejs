@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+    <div class="container">
+
+        <label class="title">Files Requests</label>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Numero de Solicitud</th>
+                    <th scope="col">Linea</th>
+                    <th scope="col">Comentario</th>
+                    <th scope="col">Acciones</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let file of files">
+                    
+                    <th scope="row">{{ file.idArchivo }}</th>
+                    <td style="margin-left: 40px;" >{{ file.idSolicitud }}</td>
+                    <td style="margin-left: 40px;" >{{ file.linea }}</td>
+                    <td style="margin-left: 40px;" >{{ file.comentario }}</td>
+
+                    <td><button class="btn btn-success" (click)="descargar(file.idArchivo)"
+                            style="background-color: rgb(130, 34, 34); padding-left: 20px; padding-right: 110px; ">DESCARGAR</button>
+                       
+                    </td>
+                    <td>
+                        <button class="btn btn-success" (click)="deleteFile(file.idArchivo)"
+                        style="background-color: rgb(130, 34, 34); padding-left: 20px; padding-right: 80px; ">ELIMINAR</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+
+<app-footer></app-footer>

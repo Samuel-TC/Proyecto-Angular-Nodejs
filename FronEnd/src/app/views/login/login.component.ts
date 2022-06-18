@@ -35,7 +35,10 @@ export class LoginComponent implements OnInit {
           this.alert.alertSuccess("login successful!");
 
           localStorage.setItem("token", data.dataUser.accessToken);
-          localStorage.setItem("id", data.dataUser.user.username)
+          localStorage.setItem("id", data.dataUser.user.username);
+          localStorage.setItem("idUsuario", data.dataUser.user.idUsuario);
+          localStorage.setItem("rool", data.dataUser.user.rool);
+
           this.router.navigate(['menu'])
         } else {
           this.errorStatus = true;

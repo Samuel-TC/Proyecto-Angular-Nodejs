@@ -25,9 +25,11 @@ export const login = async (req, res) => {
             .query(querys.login); // Create procedure login
         const user = {
             username: loginName,
-            password: pasword
+            password: pasword,
+            idUsuario:result.recordset[0].idUsuario,
+            rool:result.recordset[0].rool
         };
-
+       
         if (result.recordset[0] != null) {
             const accessToken = generateAccessToken(user);
             const sms = "authorization"

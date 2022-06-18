@@ -1,12 +1,14 @@
 
 <app-header></app-header>
+
 <div class="container">
     <div class="center">
         <article class="card">
             
             <div class="card-inner">
-                <label class="title">Nueva Solicitud</label>
-                <form [formGroup]="newForm" (ngSubmit)="postForm(newForm.value)" ngNativeValidate>
+                <label class="title">Edit Solicitud</label>
+
+                <form [formGroup]="editForm" (ngSubmit)="putForm(editForm.value)" ngNativeValidate>
                     <div class="row">
                         <div class="col-6">
                             <label>DATOS DE LA SOLICITUD</label>
@@ -23,23 +25,20 @@
                                 </option>
                             </select>
 
-                          
                         </div>
                         
                         <div class="col-6">
                             <label>DATOS DEL DOCUMENTO</label>
                 
                             <label>DOCUMENTO</label>
-                            <input type = "file" (change) = "handleUpload($event)" id = "archivo" accept = "application/pdf" placeholder = ""  required>
-
+                            <input type = "file" (change) = "handleUpload($event)" id = "archivo" accept = "application/pdf" placeholder = ""  >
 
                             <label>LINEA</label>
-                            <input type="text" id="linea" #linea placeholder=""   required>
+                            <input type="text" id="linea" #linea placeholder=""   >
 
                             <label>COMENTARIO</label>
-                            <input type="text" id="comentario" #comentario placeholder="" required>
+                            <input type="text" id="comentario" #comentario placeholder="" >
 
-                           
                         </div>
                     </div>
 
@@ -51,4 +50,5 @@
         </article>
     </div>
 </div>
+
 <app-footer></app-footer>

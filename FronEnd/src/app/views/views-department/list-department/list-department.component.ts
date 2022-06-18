@@ -15,12 +15,12 @@ import { DepartmentI } from '../../../models/department.interface'
 export class ListDepartmentComponent implements OnInit, OnDestroy {
 
   departments: DepartmentI[] = [];
-  dtTrigger: any = new Subject();
+
 
   constructor(private api: DepartmentService, private router: Router, private alert: AlertsService) { }
 
   ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
+   
   }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class ListDepartmentComponent implements OnInit, OnDestroy {
     let token = this.getToken();
     this.api.getAllDepartment(token).subscribe(res => {
       this.departments = res;
-      this.dtTrigger.next();
+     
     });
 
   }
@@ -48,12 +48,12 @@ export class ListDepartmentComponent implements OnInit, OnDestroy {
     })
     this.api.getAllDepartment(this.getToken()).subscribe(res => {
       this.departments = res;
-      this.dtTrigger.next();
+    
     });
 
     this.api.getAllDepartment(this.getToken()).subscribe(res => {
       this.departments = res;
-      this.dtTrigger.next();
+     
     });
     this.alert.alertSuccess('Deleted Departmanet!');
 

@@ -19,10 +19,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let department of departments">
-                    <th scope="row">{{ department.idDepartamento }}</th>
-                    <td (click)="editDepartment(department.idDepartamento)">{{ department.descripcion }}</td>
-                    <td (click)="editDepartment(department.idDepartamento)">{{ department.idDistrito }}</td>
-                    <td (click)="editDepartment(department.idDepartamento)">{{ department.idPais }}</td>
+                    <th scope="row">{{ department.idDepartamento }}<div class="tooltip"><span class="tooltiptext">Modificar</span></div></th>
+                    <td  (click)="editDepartment(department.idDepartamento)">{{ department.descripcion }} <div class="tooltip"><span class="tooltiptext">Modificar</span></div></td>
+                    <td  (click)="editDepartment(department.idDepartamento)">{{ department.idDistrito }} <div class="tooltip"><span class="tooltiptext">Modificar</span></div></td>
+                    <td  (click)="editDepartment(department.idDepartamento)">{{ department.idPais }} <div class="tooltip"><span class="tooltiptext">Modificar</span></div></td>
                     <td><button class="btn btn-success" (click)="deleteDepartment(department.idDepartamento)"
                             style="background-color: rgb(130, 34, 34); padding-left: 20px; padding-right: 70px;">DELETE</button>
                     </td>

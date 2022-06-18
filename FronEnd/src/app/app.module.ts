@@ -20,6 +20,10 @@ import { EditDepartmentComponent } from './views/views-department/edit-departmen
 import { EditUserComponent } from './views/views-user/edit-user/edit-user.component';
 import { ListUserComponent } from './views/views-user/list-user/list-user.component';
 import { RequestComponent } from './views/views-request/request/request.component';
+import { ListRequestUserComponent } from './views/views-request/list-request-user/list-request-user.component';
+import { ListRequestAdminComponent } from './views/views-request/list-request-admin/list-request-admin.component';
+import { EditRequestComponent } from './views/views-request/edit-request/edit-request.component';
+import { ListFileComponent } from './views/views-request/list-file/list-file.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { RequestComponent } from './views/views-request/request/request.componen
     EditDepartmentComponent,
     EditUserComponent,
     ListUserComponent,
-    RequestComponent
+    RequestComponent,
+    ListRequestUserComponent,
+    ListRequestAdminComponent,
+    EditRequestComponent,
+    ListFileComponent
   ],
   imports: [
     BrowserModule,

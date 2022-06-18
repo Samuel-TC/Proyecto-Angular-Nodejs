@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+    <div class="container">
+
+        <label class="title1">My Requests</label>
+        <button class="mask flex-center rgba-blue-light" (click)="addRequest()">ADD</button>
+        <input type="text"  placeholder=""  required>
+        <button class="btn btn-success" (click)="ant()">SEARCH</button>
+
+
+        <div class="row">
+        <div class="col-4"  *ngFor="let request of requests">
+
+            <div class="center">
+            <article class="card">
+                
+    
+                <div class="card-inner">
+                    <label class="title" scope="row">ID Solicitud: {{ request.idSolicitud }}</label>
+                    
+                    <div class="border">
+
+                    <label class="subtitle" >FECHA</label>
+                    <label class="description">{{ request.fechaHora }}</label>
+                  
+                    <label class="subtitle" >USUARIO</label>
+                    <label class="description">{{ request.idUsuario }}</label>
+
+                    <label class="subtitle" >PALABRA CLAVE</label>
+                    <label class="description" >{{ request.palabraClave }}</label>
+
+                    <label class="subtitle" >CAMBIOS</label>
+                    <label class="description" >{{ request.cantidadCambios }}</label>
+                </div>
+                <button class="btn btn-success" (click)="verArchivos(request.idSolicitud)">ARCHIVOS</button>
+
+                </div>
+            
+            </article>
+        </div>
+            
+        </div>
+        
+    </div>
+
+        <button class="btn btn-success" (click)="ant()">Ant</button>
+        <button class="btn btn-success" (click)="sig()">Sig</button>
+        
+    </div>
+
+<app-footer></app-footer>
+

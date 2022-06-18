@@ -13,9 +13,11 @@ export class HeaderComponent implements OnInit {
   constructor( private router: Router, private alert: AlertsService ) { }
 
   value:any='';
+  rool:string="";
 
   ngOnInit(): void {
      this.value =   localStorage.getItem("id");
+     this.rool= localStorage.getItem("rool");
   }
 
   exit(){//seccion
@@ -35,6 +37,14 @@ export class HeaderComponent implements OnInit {
 
   menu(){
     this.router.navigate(['menu'])
+  }
+
+  request(){
+    if(this.rool=='1'){
+      this.router.navigate(['list/request/user']);
+    }else{
+      this.router.navigate(['list/request/admin']);
+    }
   }
   
 
