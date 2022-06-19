@@ -53,6 +53,7 @@ export class ListFileComponent implements OnInit {
     });
   
   }
+  
   descargar(id:string){
     this.files.forEach(data =>{
       if(data.idArchivo==id){

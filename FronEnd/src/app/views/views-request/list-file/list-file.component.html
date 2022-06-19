@@ -9,7 +9,6 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Numero de Solicitud</th>
-                    <th scope="col">Linea</th>
                     <th scope="col">Comentario</th>
                     <th scope="col">Acciones</th>
                     <th scope="col">Acciones</th>
@@ -20,7 +19,6 @@
                     
                     <th scope="row">{{ file.idArchivo }}</th>
                     <td style="margin-left: 40px;" >{{ file.idSolicitud }}</td>
-                    <td style="margin-left: 40px;" >{{ file.linea }}</td>
                     <td style="margin-left: 40px;" >{{ file.comentario }}</td>
 
                     <td><button class="btn btn-success" (click)="descargar(file.idArchivo)"

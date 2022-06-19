@@ -24,18 +24,19 @@ export class ListUserComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit(): void {
-
     this.api.getAllUsers(this.Pag,this.getToken()).subscribe(res => {
       this.users = res;
      
     });
   }
 
+  //EDIT USER
   editUser(id:string){
     //this.alert.alertSuccess("si");
     this.router.navigate(['edit/user',id])
   }
 
+  //DELETE USER
   deleteUser(id:string){
     this.api.deleteUserById(id,this.getToken()).subscribe(data=>{
       console.log("Eliminado");
@@ -47,10 +48,12 @@ export class ListUserComponent implements OnInit,OnDestroy {
     this.alert.alertSuccess("Deleted User!")
   }
 
+  //ADD USER
   addUser(){
     
   }
 
+  //SIG PAG
   sig(){
     this.Pag = this.Pag+1
     this.api.getAllUsers(this.Pag,this.getToken()).subscribe(res => {
@@ -58,6 +61,8 @@ export class ListUserComponent implements OnInit,OnDestroy {
       
     });
   }
+
+  //AND PAG
   ant(){
     if(this.Pag-1>0){
       this.Pag = this.Pag-1
@@ -68,6 +73,7 @@ export class ListUserComponent implements OnInit,OnDestroy {
     }
   }
 
+  //GET TOKEN
   getToken() {
     return localStorage.getItem('token');
   }

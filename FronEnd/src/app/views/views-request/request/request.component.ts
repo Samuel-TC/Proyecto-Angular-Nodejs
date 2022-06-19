@@ -67,7 +67,7 @@ export class RequestComponent implements OnInit {
        let file={
         archivo:this.read,
         comentario:this.comentario.nativeElement.value,
-        linea:this.linea.nativeElement.value,
+        linea:"temp",
         idSolicitud:0
        };
       this.apiR.postFile(file, this.getToken()).subscribe(data =>{

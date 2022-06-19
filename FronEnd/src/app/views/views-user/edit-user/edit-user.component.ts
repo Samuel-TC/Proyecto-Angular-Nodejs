@@ -30,6 +30,7 @@ export class EditUserComponent implements OnInit {
   sexos:SexI[]=[];
   datauser: UserI;
 
+  //EDIT FORM
   editForm = new FormGroup({
     nombre:new FormControl('',[Validators.required]),
     apellido1:new FormControl('',[Validators.required]),
@@ -74,6 +75,7 @@ export class EditUserComponent implements OnInit {
   
   }
 
+  //PUST USER
   putForm(form:UserI){
     let cedula = this.active.snapshot.paramMap.get('id');
     if (this.editForm.valid ) {
@@ -90,6 +92,7 @@ export class EditUserComponent implements OnInit {
   }
   }
 
+  //GET TOKEN
   getToken(){
     return localStorage.getItem('token');
   }

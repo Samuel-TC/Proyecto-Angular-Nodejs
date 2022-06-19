@@ -22,24 +22,21 @@
                                 <option *ngFor="let clasificador of clasificadores " value="{{clasificador.idClasificador}}">{{clasificador.descripcion}}
                                 </option>
                             </select>
-
-                          
+ 
                         </div>
                         
                         <div class="col-6">
+
+                            <label></label>
+                            <label></label>
                             <label>DATOS DEL DOCUMENTO</label>
                 
                             <label>DOCUMENTO</label>
                             <input type = "file" (change) = "handleUpload($event)" id = "archivo" accept = "application/pdf" placeholder = ""  required>
 
-
-                            <label>LINEA</label>
-                            <input type="text" id="linea" #linea placeholder=""   required>
-
                             <label>COMENTARIO</label>
                             <input type="text" id="comentario" #comentario placeholder="" required>
-
-                           
+    
                         </div>
                     </div>
 

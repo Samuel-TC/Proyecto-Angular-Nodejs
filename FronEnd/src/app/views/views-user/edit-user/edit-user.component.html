@@ -51,8 +51,7 @@
                                     <label>DISTRICT</label>
                                     <select type="text" id="idDistrito" formControlName="idDistrito" required>
                                         <option value="" selected>Select</option>
-                                        <option *ngFor="let distrito of distritos " value="{{distrito.idDistrito}}">
-                                            {{distrito.descripcion}}</option>
+                                        <option *ngFor="let distrito of distritos " value="{{distrito.idDistrito}}">{{distrito.descripcion}}</option>
                                     </select>
                                 </div>
                             </div>

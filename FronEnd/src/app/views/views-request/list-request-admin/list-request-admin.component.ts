@@ -52,7 +52,7 @@ export class ListRequestAdminComponent implements OnInit, OnDestroy {
       this.requests = res;
      
     });
-    this.alert.alertSuccess('Deleted Departmanet!');
+    this.alert.alertSuccess('Deleted!');
 
   }
 

@@ -12,7 +12,6 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from "angular-datatables";
 
-
 import { MenuComponent } from './views/menu/menu.component';
 import { DepartamentComponent } from './views/views-department/department/departament.component';
 import { ListDepartmentComponent } from './views/views-department/list-department/list-department.component';

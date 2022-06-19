@@ -87,14 +87,13 @@ export class EditRequestComponent implements OnInit {
         let file={
           archivo:this.read,
           comentario:this.comentario.nativeElement.value,
-          linea:this.linea.nativeElement.value,
+          linea:"temp",
           idSolicitud:idS
         };
         this.apiR.postFile(file, this.getToken()).subscribe(data =>{})
       }
-        this.router.navigate(['list/request/user']);
+        this.router.navigate(['list/request/admin']);
       }else{
-        
         this.errorStatus=true;
         this.errorMs="Ingrese todos los campos!"
       }
