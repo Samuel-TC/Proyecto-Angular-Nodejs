@@ -16,6 +16,8 @@ export class RequestService {
 
   url0:string= "http://localhost:4000/request/user/"; 
 
+  urlb:string= "http://localhost:4000/request/user/buscar/"; 
+
   url1:string= "http://localhost:4000/file/"; 
 
   url2:string= "http://localhost:4000/clasificadores/"; 
@@ -37,6 +39,11 @@ export class RequestService {
   getRequestById(id:string,token:any):Observable<RequestI>{
     let headers = new HttpHeaders().set('Authorization',token);
     return this.http.get<RequestI>(this.url+id,{ headers });
+  }
+
+  getRequestByIdUserBuscar(id:string,token:any):Observable<RequestI[]>{
+    let headers = new HttpHeaders().set('Authorization',token);
+    return this.http.get<RequestI[]>(this.urlb+id,{ headers });
   }
 
   getRequestByIdUser(id:string,token:any):Observable<RequestI[]>{

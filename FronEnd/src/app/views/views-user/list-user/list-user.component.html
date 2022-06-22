@@ -9,6 +9,7 @@
     <table class=" table table-hover">
         <thead>
             <tr>
+            <th scope="col">Foto</th>
             <th scope="col">Cedula</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
@@ -19,6 +20,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of users" >
+                <th scope="row" ><img *ngIf="user.foto!= null" src="{{user.foto}}"/> <img *ngIf="user.foto== null" src="https://www.marketingmuses.com/wp-content/uploads/2018/01/invis-user.png"/> </th>
             <th scope="row">{{ user.cedula }}</th>
             <td (click)="editUser(user.cedula)" >{{ user.nombre }}</td>
             <td (click)="editUser(user.cedula)" >{{ user.apelllido1 }}</td>

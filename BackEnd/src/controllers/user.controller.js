@@ -7,7 +7,7 @@ export const getUsers = async (req, res) => {
     const { cedula } = req.params
     const Pag =cedula;
     console.log(cedula);
-    const tamPag=9
+    const tamPag=8
 
     try {
         const pool = await getConnection(); // Promise connection
@@ -36,6 +36,19 @@ export const getUserByID = async (req, res) => {
     res.send(result.recordset[0])
 };
 
+//GET user by ID
+export const getUserByIDFoto = async (req, res) => {
+
+    const { idUsuario } = req.params
+   console.log(idUsuario)
+    const pool = await getConnection();
+    const result= await pool.request()
+        .input('idUsuario', idUsuario)
+        .query(querys.getUserFoto);
+        console.log(result.recordset[0])
+    res.send(result.recordset[0])
+};
+
 //DELETE user by ID
 export const deleteUserById = async (req, res) => {
 
@@ -51,7 +64,7 @@ export const deleteUserById = async (req, res) => {
 //UPDATE user by ID
 export const updateUserById = async (req, res) => {
     
-    const { cedula, nombre, apellido1, apellido2, correo, fechaNacimiento, idSexo, celular, idDepartamento, idDistrito }= req.body;// save data 
+    const { cedula, nombre, apellido1, apellido2, correo, fechaNacimiento, idSexo, celular, idDepartamento, idDistrito,foto }= req.body;// save data 
     
  
     try {
@@ -68,6 +81,7 @@ export const updateUserById = async (req, res) => {
             .input('celular', sql.NVarChar(15), celular)
             .input('idDepartamento', sql.TinyInt, idDepartamento)
             .input('idDistrito', sql.SmallInt, idDistrito)
+            .input("foto", sql.NVarChar(MAX), foto)
             .query(querys.updateUser); // Create procedure
         res.json({  idDepartamento, descripcion, idDistrito, idPais });
   } catch (error) {

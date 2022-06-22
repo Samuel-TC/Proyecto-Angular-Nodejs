@@ -27,7 +27,7 @@
                                     </select>
 
                                     <label>FOTO</label>
-                                    <input type="file" id="foto" placeholder="" required>
+                                    <input type="file" id="foto" (change) =  "handleUpload($event)" placeholder="" required>
                                 </div>
                                 
                                 <div class="col-6">

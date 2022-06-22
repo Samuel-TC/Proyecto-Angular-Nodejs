@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../services/login/login.service';
 import { AlertsService } from '../../services/alerts/alerts.service'
 
+import { UserService } from '../../services/user/user.service';
+import { UserI } from '../../models/user.interface'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +17,7 @@ import { AlertsService } from '../../services/alerts/alerts.service'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private login: LoginService, private router: Router, private alert: AlertsService) { }
+  constructor(private login: LoginService, private router: Router, private alert: AlertsService, private userApi: UserService) { }
 
   errorStatus: boolean = false;
   errorMs: any = ""
@@ -73,5 +76,6 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['menu'])
     }
   }
+
 
 }

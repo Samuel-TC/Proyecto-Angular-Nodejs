@@ -16,6 +16,7 @@ export class UserService {
   url:string= "http://localhost:4000/user/";
   url1:string= "http://localhost:4000/user1/";
   url2:string= "http://localhost:4000/sex/";
+  urlfoto:string= "http://localhost:4000/user2/";
 
   getAllUsers(Pag:any, token:any):Observable<UserI[]>{
     let headers = new HttpHeaders().set('Authorization',token);
@@ -26,6 +27,13 @@ export class UserService {
     console.log(id)
     let headers = new HttpHeaders().set('Authorization',token);
     return this.http.get<UserI>(this.url+id,{ headers });
+  }
+
+  //USER IMG
+  getUserByIdIMG(id:string,token:any):Observable<UserI>{
+    console.log(id)
+    let headers = new HttpHeaders().set('Authorization',token);
+    return this.http.get<UserI>(this.urlfoto+id,{ headers });
   }
 
   updateUserById(form:UserI,token:any):Observable<ResponseI>{

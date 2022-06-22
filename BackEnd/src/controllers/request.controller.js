@@ -32,16 +32,44 @@ export const getRequestByID = async (req, res) => {
     
 };
 
+
 //GET Request by ID
 export const getRequestByIDUser = async (req, res) => {
 
-    const { idUsuario } = req.params
+    var { idUsuario } = req.params
+    const myArray = idUsuario.split(",");
+    const Pag = myArray[1];
+    const idUsuario1=  myArray[0];
+    const tamPag=3;
 
+    console.log(myArray)
     const pool = await getConnection();
 
     const result= await pool.request()
-        .input('idUsuario', idUsuario)
+        .input('Pag', Pag)
+        .input('tamPag', tamPag)// Create Procedure
+        .input('idUsuario', idUsuario1)
         .query(querys.getRequestIDUser);
+        
+    res.json(result.recordset);
+    
+};
+
+//GET Request by ID BUSCAR
+export const getRequestByIDUserbuscar = async (req, res) => {
+
+    var { idUsuario } = req.params
+    const myArray = idUsuario.split(",");
+    const buscar = myArray[1];
+    const idUsuario1=  myArray[0];
+
+    console.log(myArray)
+    const pool = await getConnection();
+
+    const result= await pool.request()
+        .input('idUsuario', idUsuario1)// Create Procedure
+        .input('buscar', buscar)
+        .query(querys.getRequestIDUserBuscar);
         
     res.json(result.recordset);
     
@@ -71,9 +99,6 @@ export const createRequest = async (req, res) => {
             .input('idUsuarioRespuesta', sql.Int, idUsuarioRespuesta)
             .input('cantidadArchivos', sql.Int, cantidadArchivos)
             .query(querys.createRequest); // Create procedure
-
-       
-
   } catch (error) {
     res.send(error.message);
     

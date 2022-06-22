@@ -38,22 +38,27 @@ export class ListRequestAdminComponent implements OnInit, OnDestroy {
   addRequest() {
     this.router.navigate(['request'])
   }
-
+ 
   deleteRequest(id: any) {
-    this.api.deleteRequestById(id, this.getToken()).subscribe(data => {
-      console.log("Eliminado");
-    })
-    this.api.getAllRequest(this.getToken()).subscribe(res => {
-      this.requests = res;
-     
-    });
+    this.alert.alertConfim('Estás seguro que desea eliminar esta solicitud?', 'Eliminar solicitud', 'Eliminado', 'Eliminar', (confirm => {
+      console.log(confirm);
+      if (confirm) {
+        this.api.deleteRequestById(id, this.getToken()).subscribe(data => {
+          console.log("Eliminado");
+        })
+        this.api.getAllRequest(this.getToken()).subscribe(res => {
+          this.requests = res;
 
-    this.api.getAllRequest(this.getToken()).subscribe(res => {
-      this.requests = res;
-     
-    });
-    this.alert.alertSuccess('Deleted!');
+        });
 
+        this.api.getAllRequest(this.getToken()).subscribe(res => {
+          this.requests = res;
+
+        });
+        this.alert.alertSuccess('Deleted!');
+
+      }
+    }));
   }
 
   getToken() {

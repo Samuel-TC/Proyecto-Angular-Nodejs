@@ -20,7 +20,7 @@ export class ListDepartmentComponent implements OnInit, OnDestroy {
   constructor(private api: DepartmentService, private router: Router, private alert: AlertsService) { }
 
   ngOnDestroy(): void {
-   
+
   }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class ListDepartmentComponent implements OnInit, OnDestroy {
     let token = this.getToken();
     this.api.getAllDepartment(token).subscribe(res => {
       this.departments = res;
-     
+
     });
 
   }
@@ -43,19 +43,23 @@ export class ListDepartmentComponent implements OnInit, OnDestroy {
   }
 
   deleteDepartment(id: any) {
-    this.api.deleteDepartmentById(id, this.getToken()).subscribe(data => {
-      console.log("Eliminado");
-    })
-    this.api.getAllDepartment(this.getToken()).subscribe(res => {
-      this.departments = res;
-    
-    });
+    this.alert.alertConfim('Estás seguro que desea eliminar este departamento?', 'Eliminar departamneto', 'Eliminado', 'Eliminar', (confirm => {
+      console.log(confirm);
+      if (confirm) {
+        this.api.deleteDepartmentById(id, this.getToken()).subscribe(data => {
+          console.log("Eliminado");
+        })
+        this.api.getAllDepartment(this.getToken()).subscribe(res => {
+          this.departments = res;
 
-    this.api.getAllDepartment(this.getToken()).subscribe(res => {
-      this.departments = res;
-     
-    });
-    this.alert.alertSuccess('Deleted Departmanet!');
+        });
+
+        this.api.getAllDepartment(this.getToken()).subscribe(res => {
+          this.departments = res;
+
+        });
+      }
+    }));
 
   }
 

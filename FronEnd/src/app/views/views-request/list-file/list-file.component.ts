@@ -40,12 +40,23 @@ export class ListFileComponent implements OnInit {
   }
 
   deleteFile(id:string){
-    this.apiR.deleteFileById(id, this.getToken()).subscribe(res=>{});
+    this.alert.alertConfim('Estás seguro que desea eliminar este archivo?', 'Eliminar Archivo', 'Eliminado', 'Eliminar',(confirm => {
+        console.log(confirm);
+        if(confirm){
+          this.apiR.deleteFileById(id, this.getToken()).subscribe(res=>{});
+   
+          this.apiR.getAllFiles( this.active.snapshot.paramMap.get('id'),this.getToken()).subscribe(res =>{
+            this.files=res;
+            console.log(this.files)
+          });
+          this.apiR.getAllFiles( this.active.snapshot.paramMap.get('id'),this.getToken()).subscribe(res =>{
+            this.files=res;
+            console.log(this.files)
+          });
+        }
+    }));
     
-    this.apiR.getAllFiles( this.active.snapshot.paramMap.get('id'),this.getToken()).subscribe(res =>{
-      this.files=res;
-      console.log(this.files)
-    });
+    
 
     this.apiR.getAllFiles( this.active.snapshot.paramMap.get('id'),this.getToken()).subscribe(res =>{
       this.files=res;

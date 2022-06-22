@@ -2,7 +2,7 @@ $margin-label: 20px;
 $color-font: #2a2929ca ;
 $color-main: rgb(0, 0, 0, 0.25);
 $font-text-label: 1em sans-serif;
-$font-text-title: 2.2em sans-serif;
+$font-text-title: 1.9em sans-serif;
 
 .container{
     margin-top: 70px;
@@ -21,7 +21,7 @@ $font-text-title: 2.2em sans-serif;
 
 .card{
     width: 350px;
-    height: 450px;
+    height: 550px;
     position: relative;
     
    
@@ -110,16 +110,16 @@ $font-text-title: 2.2em sans-serif;
 
     .title{
         font: $font-text-title;
-        margin-top: 25px;
-        margin-bottom: 20px;
+        margin-top: 15px;
+        margin-bottom: 15px;
        // font-weight:550;
         text-align: center;
     }
 
     .subtitle{
-        font: 1.3em sans-serif;
+        font: 1.1em sans-serif;
         margin-top: 10px;
-        margin-bottom: px;
+        margin-bottom: 0px;
        
        // font-weight:550;
        

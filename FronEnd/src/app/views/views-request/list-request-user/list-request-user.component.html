@@ -4,8 +4,8 @@
 
         <label class="title1">My Requests</label>
         <button class="mask flex-center rgba-blue-light" (click)="addRequest()">ADD</button>
-        <input type="text"  placeholder=""  required>
-        <button class="btn btn-success" (click)="ant()">SEARCH</button>
+        <input id="buscar"  placeholder=""  required #buscar  (keyup)="buscarf($event)">
+        <button class="btn btn-success"   (click)="buscarb()"  >SEARCH</button>
 
 
         <div class="row">
@@ -20,6 +20,9 @@
                     
                     <div class="border">
 
+                    <label class="subtitle" >ESTADO</label>
+                    <label class="description" style="color: rgb(255, 51, 0);">Sin respueta...</label>
+
                     <label class="subtitle" >FECHA</label>
                     <label class="description">{{ request.fechaHora }}</label>
                   
@@ -29,8 +32,12 @@
                     <label class="subtitle" >PALABRA CLAVE</label>
                     <label class="description" >{{ request.palabraClave }}</label>
 
+                    <label class="subtitle" >ASUNTO</label>
+                    <label class="description" >{{ request.asuntoDetallado }}</label>
+
                     <label class="subtitle" >CAMBIOS</label>
                     <label class="description" >{{ request.cantidadCambios }}</label>
+
                 </div>
                 <button class="btn btn-success" (click)="verArchivos(request.idSolicitud)">ARCHIVOS</button>
 
@@ -42,7 +49,7 @@
         </div>
         
     </div>
-
+        
         <button class="btn btn-success" (click)="ant()">Ant</button>
         <button class="btn btn-success" (click)="sig()">Sig</button>
         

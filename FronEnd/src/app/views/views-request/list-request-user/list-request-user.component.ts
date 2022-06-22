@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, VERSION, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestService } from '../../../services/request/request.service';
 import { AlertsService } from '../../../services/alerts/alerts.service';
@@ -13,8 +13,12 @@ import { RequestI } from '../../../models/request.interface'
 })
 export class ListRequestUserComponent implements OnInit, OnDestroy {
 
+  pag:any =1;
   //List REQUEST
   requests: RequestI[] = [];
+
+  name = 'Angular ' + VERSION.major;
+  @ViewChild('buscar') buscar: ElementRef;
 
   constructor(private api: RequestService, private router: Router, private alert: AlertsService) { }
 
@@ -25,7 +29,7 @@ export class ListRequestUserComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     let token = this.getToken();
-    this.api.getRequestByIdUser(localStorage.getItem("idUsuario"),token).subscribe(res => {
+    this.api.getRequestByIdUser(localStorage.getItem("idUsuario")+','+this.pag, token).subscribe(res => {
       this.requests = res;
     });
 
@@ -45,12 +49,12 @@ export class ListRequestUserComponent implements OnInit, OnDestroy {
     })
 
     //List Request
-    this.api.getRequestByIdUser(localStorage.getItem("idUsuario"),this.getToken()).subscribe(res => {
+    this.api.getRequestByIdUser(localStorage.getItem("idUsuario")+','+this.pag, this.getToken()).subscribe(res => {
       this.requests = res;
      
     });
 
-    this.api.getRequestByIdUser(localStorage.getItem("idUsuario"),this.getToken()).subscribe(res => {
+    this.api.getRequestByIdUser(localStorage.getItem("idUsuario")+this.pag, this.getToken()).subscribe(res => {
       this.requests = res;
      
     });
@@ -64,11 +68,26 @@ export class ListRequestUserComponent implements OnInit, OnDestroy {
   }
 
   ant() {
-
+    if (this.pag - 1 > 0) {
+      this.pag=this.pag-1;
+      this.api.getRequestByIdUser(localStorage.getItem("idUsuario")+','+this.pag,this.getToken()).subscribe(res => {
+        this.requests = res;
+       
+      });
+    }
   }
 
   sig() {
-
+    
+    this.api.getRequestByIdUser(localStorage.getItem("idUsuario")+','+this.pag,this.getToken()).subscribe(res => {
+      console.log(res.length);
+      if(res.length>0){
+        this.requests = res;
+        this.pag=this.pag+1;
+      }
+    
+     
+    });
   }
 
   verArchivos(id:string){
@@ -76,4 +95,28 @@ export class ListRequestUserComponent implements OnInit, OnDestroy {
   }
 
 
+  buscarf(event: any){
+    var search: string = this.buscar.nativeElement.value;
+    this.api.getRequestByIdUserBuscar(localStorage.getItem("idUsuario")+','+search, this.getToken()).subscribe(res => {
+      console.log(res.length);
+      if(res.length>0){
+        this.requests = res;
+      }
+     
+    });
+  }
+
+  buscarb(){
+    var search: string = this.buscar.nativeElement.value;
+    this.api.getRequestByIdUserBuscar(localStorage.getItem("idUsuario")+','+search, this.getToken()).subscribe(res => {
+      console.log(res.length);
+      if(res.length>0){
+        this.requests = res;
+      }else{
+        this.alert.alertError("Busquedas sin resultados ")
+      }
+    
+     
+    });
+  }
 }

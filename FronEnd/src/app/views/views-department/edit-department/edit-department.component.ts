@@ -35,7 +35,7 @@ export class EditDepartmentComponent implements OnInit {
 
     let idDepartment = this.active.snapshot.paramMap.get('id');
     console.log(idDepartment);
-    
+
     this.apiDepartment.getAllDistric(this.getToken()).subscribe(res => {
       this.distritos = res;
     });
@@ -59,14 +59,20 @@ export class EditDepartmentComponent implements OnInit {
   }
 
   putForm(form: DepartmentI) {
+
     let iddepartment = this.active.snapshot.paramMap.get('id');
     if (this.editForm.valid) {
       console.log(form)
       form.idDepartamento = iddepartment;
-      this.apiDepartment.updateDepartmentById(form, this.getToken()).subscribe(data => {
-      });
-      this.alert.alertSuccess('Edited Departmanet!');
-      this.router.navigate(['list/department']);
+      this.alert.alertConfim('Estás seguro que desea editar este departamento?', 'Editar Departamento', 'Editado', 'Editar', (confirm => {
+        console.log(confirm);
+        if (confirm) {
+          this.apiDepartment.updateDepartmentById(form, this.getToken()).subscribe(data => {
+          });
+          this.router.navigate(['list/department']);
+        }
+      }));
+     
     } else {
 
       this.errorStatus = true;

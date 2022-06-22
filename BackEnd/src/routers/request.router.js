@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { validateToken } from "../controllers/login.controller";
-import { createRequest,deleteRequestById,getRequest,getRequestByID,updateRequestById,getClasificadores,createFile,deleteFileById,getFileByIDSolicitud,getRequestByIDUser } from "../controllers/request.controller";
+import { createRequest,deleteRequestById,getRequest,getRequestByID,updateRequestById,getClasificadores,createFile,deleteFileById,getFileByIDSolicitud,getRequestByIDUser, getRequestByIDUserbuscar } from "../controllers/request.controller";
 
 const router = Router();
 
@@ -11,6 +11,7 @@ router.get('/request/:idSolicitud', validateToken, getRequestByID);
 router.delete('/request/:idSolicitud', validateToken, deleteRequestById);
 router.put('/request/:idSolicitud', validateToken, updateRequestById);
 router.get('/request/user/:idUsuario', validateToken, getRequestByIDUser);
+router.get('/request/user/buscar/:idUsuario', validateToken, getRequestByIDUserbuscar);
 
 router.get('/clasificadores/', validateToken, getClasificadores);
 
