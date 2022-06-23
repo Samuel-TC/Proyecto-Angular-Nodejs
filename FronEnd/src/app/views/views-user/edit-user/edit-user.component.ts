@@ -90,7 +90,6 @@ export class EditUserComponent implements OnInit {
       this.alert.alertConfim('Estás seguro que desea editar este usuario?', 'Editar Usuario', 'Editado', 'Editar', (confirm => {
         console.log(confirm);
         if (confirm) {
-          console.log(cedula)
           form.cedula = cedula;
           this.apiUser.updateUserById(form, this.getToken()).subscribe(data => {
           });

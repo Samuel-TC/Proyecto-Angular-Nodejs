@@ -10,12 +10,12 @@
             <div class="circle"></div>
             <div class="card-inner">
                 <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)" ngNativeValidate>
-                    <label class="title">Sign in</label>
+                    <label class="title">LOGIN</label>
                     <label>USERNAME</label>
                     <input type="text"  id="login" placeholder="" formControlName="user"  required>
                     <label>PASSWORD</label >
                     <input type="password" id="password" placeholder="" formControlName="password" required>
-                    <button type="submit" class="mask flex-center rgba-blue-light">SING IN</button>
+                    <button type="submit" class="mask flex-center rgba-blue-light">LOGIN</button>
                 </form>
             <div class="margin1"></div>
                 <a class="link" href="#">Forgot your password?</a>

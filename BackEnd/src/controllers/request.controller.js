@@ -27,7 +27,6 @@ export const getRequestByID = async (req, res) => {
     const result= await pool.request()
         .input('idSolicitud', idSolicitud)
         .query(querys.getRequestID);
-    console.log(result.recordset[0])
     res.send(result.recordset[0]);
     
 };
@@ -62,8 +61,6 @@ export const getRequestByIDUserbuscar = async (req, res) => {
     const myArray = idUsuario.split(",");
     const buscar = myArray[1];
     const idUsuario1=  myArray[0];
-
-    console.log(myArray)
     const pool = await getConnection();
 
     const result= await pool.request()
@@ -83,9 +80,6 @@ export const createRequest = async (req, res) => {
             cantidadArchivos }= req.body;// save data 
           
             detalleRespuesta="nada";
-       
-            console.log( idUsuario ,palabraClave ,asuntoDetallado  ,Number.parseInt(idClasificador), 
-                idRespuesta ,detalleRespuesta  ,idUsuarioRespuesta, cantidadArchivos);
     try {
         const pool = await getConnection();
 
@@ -129,7 +123,6 @@ export const updateRequestById = async (req, res) => {
 
     detalleRespuesta="nada";
   
-
     try {
         
         const pool = await getConnection();
@@ -202,8 +195,6 @@ export const createFile = async (req, res) => {
     var {  idSolicitud, linea, archivo, comentario  }= req.body;// save data 
 
     const pool = await getConnection();
-
-    console.log(idSolicitud);
     
     await pool.request()
         .input('idSolicitud', sql.Int ,Number.parseInt(idSolicitud))

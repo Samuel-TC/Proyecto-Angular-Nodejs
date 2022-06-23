@@ -66,7 +66,6 @@ export const updateUserById = async (req, res) => {
     
     const { cedula, nombre, apellido1, apellido2, correo, fechaNacimiento, idSexo, celular, idDepartamento, idDistrito,foto }= req.body;// save data 
     
- 
     try {
         
         const pool = await getConnection();
@@ -83,7 +82,7 @@ export const updateUserById = async (req, res) => {
             .input('idDistrito', sql.SmallInt, idDistrito)
             .input("foto", sql.NVarChar(MAX), foto)
             .query(querys.updateUser); // Create procedure
-        res.json({  idDepartamento, descripcion, idDistrito, idPais });
+        res.json({ cedula,nombre  });
   } catch (error) {
     res.send(error.message)
   }
