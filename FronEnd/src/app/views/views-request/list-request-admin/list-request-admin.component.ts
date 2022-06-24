@@ -77,4 +77,8 @@ export class ListRequestAdminComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('request/files/'+id);
   }
 
+  response(id: string) {
+    this.router.navigate(['response', id])
+  }
+
 }

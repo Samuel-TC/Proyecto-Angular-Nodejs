@@ -21,8 +21,9 @@
                     <div class="border">
 
                     <label class="subtitle" >RESPUESTA</label>
-                    <label class="description" style="color: rgb(255, 51, 0);">Sin respueta...</label>
-
+                    <label *ngIf="request.idRespuesta == null " class="description" style="color: rgb(255, 51, 0);">Sin respueta...</label>
+                    <input type="button" *ngIf="request.idRespuesta != null " class="show" style="background-color: rgb(43, 8, 38); color: azure; padding-right: 120px;"  (click)="show(request.idSolicitud)" value="Ver Respuesta">
+                   
                     <label class="subtitle" >FECHA</label>
                     <label class="description">{{ request.fechaHora }}</label>
                   
@@ -36,8 +37,8 @@
                     <label class="description" >{{ request.asuntoDetallado }}</label>
 
                     <label class="subtitle" >CAMBIOS</label>
-                    <label class="description" >{{ request.cantidadCambios }}</label>
-
+                    <label class="description" style="padding: 0px; margin-right: 0px;" >{{ request.cantidadCambios }}</label>
+                    <input type="button"class="show" style="background-color: rgb(43, 8, 38); color: azure; padding-right: 120px;"  (click)="edit(request.idSolicitud)" value="Editar Solicitud">
                 </div>
                 <button class="btn btn-success" (click)="verArchivos(request.idSolicitud)">ARCHIVOS</button>
 

@@ -37,6 +37,9 @@ export const querys ={
     //FILE
     deleteFilebyID: "EXEC pa_eliminar_archivo_solicitud @idArchivo",
     getFileIDSolicitud: "pa_listar_archivos_idSolicitud @idSolicitud",
-    createFile: "EXEC pa_insertar_archivo_solicitud @idSolicitud, @linea, @archivo, @comentario"
+    createFile: "EXEC pa_insertar_archivo_solicitud @idSolicitud, @linea, @archivo, @comentario",
+
+    //Response
+    reponse: "EXEC pa_nueva_respuesta @idSolicitud, @descripcion, @detalleRespuesta, @idUsuarioRespuesta" 
 
 }

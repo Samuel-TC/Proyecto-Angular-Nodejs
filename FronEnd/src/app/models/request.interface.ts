@@ -10,5 +10,6 @@ export interface RequestI{
 	detalleRespuesta: string,
 	fechaHoraRespuesta: string,
 	idUsuarioRespuesta: string,
-	cantidadArchivos: string
+	cantidadArchivos: string,
+	descripcion: string
 }

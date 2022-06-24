@@ -46,8 +46,6 @@ $font-text-title: 1.9em sans-serif;
     text-align: center;
     
 
-
-
     button{
         margin-top: 0px;
         width: 85%;
@@ -130,7 +128,7 @@ $font-text-title: 1.9em sans-serif;
 
     .subtitle{
         font: 1.1em sans-serif;
-        margin-top: 10px;
+        margin-top: 5px;
         margin-bottom: 0px;
        
        // font-weight:550;
@@ -139,6 +137,7 @@ $font-text-title: 1.9em sans-serif;
     
     .description{
         color: rgb(128, 128, 250);
+        margin-bottom: 0px;
     }
 
 }
@@ -162,6 +161,7 @@ button{
     z-index: 1;
 
 }
+
 
 button:hover{
     color: white;
@@ -201,6 +201,15 @@ input{
     letter-spacing: 0.01em;
     position: relative;
     z-index: 1;
+}
+
+
+.show{
+    margin-left: 5px;
+    background-color: #240224;
+    color: #090521ea;
+    padding-right: 100px;
+    border: none;
 }
 
 ::placeholder {

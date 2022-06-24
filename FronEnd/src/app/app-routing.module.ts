@@ -19,6 +19,9 @@ import { EditRequestComponent } from './views/views-request/edit-request/edit-re
 import { ListFileComponent } from './views/views-request/list-file/list-file.component';
 import { RequestComponent } from './views/views-request/request/request.component';
 
+import { ResponseComponent } from './views/views-response/response/response.component';
+import { ShowResponseComponent } from './views/views-response/show-response/show-response.component';
+
 const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'menu', component: MenuComponent},
@@ -36,6 +39,8 @@ const routes: Routes = [
   {path: 'request', component: RequestComponent },
   {path: 'request/files/:id', component: ListFileComponent },
 
+  {path: 'response/:id', component: ResponseComponent },
+  {path: 'show/response/:id', component: ShowResponseComponent },
 ];
 
 @NgModule({

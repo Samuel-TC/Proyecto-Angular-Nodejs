@@ -204,3 +204,30 @@ export const createFile = async (req, res) => {
         .query(querys.createFile);
     
 };
+
+
+//RESPONSE
+export const responseResquest = async (req, res) => {
+
+    var {  descripcion, detalleRespuesta  ,idUsuario }= req.body;// save data 
+
+    let { idSolicitud } =  req.params
+    console.log(idUsuarioRespuesta);
+    let idUsuarioRespuesta = idUsuario;
+    try {
+        
+        const pool = await getConnection();
+
+        await pool.request()
+            .input("idSolicitud", sql.Int, idSolicitud)
+            .input('descripcion', sql.NVarChar(50), descripcion)
+            .input('detalleRespuesta', sql.NVarChar(50), detalleRespuesta)
+            .input('idUsuarioRespuesta', sql.Int, idUsuarioRespuesta)
+            .query(querys.reponse); // Create procedure
+
+        res.json({ detalleRespuesta  ,idUsuarioRespuesta });
+
+  } catch (error) {
+    res.send(error.message);
+  }
+};

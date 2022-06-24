@@ -119,4 +119,12 @@ export class ListRequestUserComponent implements OnInit, OnDestroy {
      
     });
   }
+
+  show(idSoli: string){
+    this.alert.alertSuccess("RESPUESTAS")
+  }
+
+  edit(idSoli: string){
+    this.router.navigateByUrl('/edit/request/'+idSoli);
+  }
 }

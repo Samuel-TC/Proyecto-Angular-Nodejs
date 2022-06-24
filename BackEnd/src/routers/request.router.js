@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { validateToken } from "../controllers/login.controller";
-import { createRequest,deleteRequestById,getRequest,getRequestByID,updateRequestById,getClasificadores,createFile,deleteFileById,getFileByIDSolicitud,getRequestByIDUser, getRequestByIDUserbuscar } from "../controllers/request.controller";
+import { createRequest,deleteRequestById,getRequest,getRequestByID,updateRequestById,getClasificadores,createFile,deleteFileById,getFileByIDSolicitud,getRequestByIDUser, getRequestByIDUserbuscar, responseResquest } from "../controllers/request.controller";
 
 const router = Router();
 
@@ -19,5 +19,8 @@ router.get('/clasificadores/', validateToken, getClasificadores);
 router.post('/file/', validateToken, createFile);
 router.get('/file/:idSolicitud', validateToken, getFileByIDSolicitud);
 router.delete('/file/:idArchivo', validateToken, deleteFileById);
+
+//Response
+router.put('/response/:idSolicitud', validateToken, responseResquest);
 
 export default router

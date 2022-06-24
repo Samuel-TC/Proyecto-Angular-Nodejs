@@ -22,5 +22,10 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['login'])
   }
 
+  newRequest(){
+    this.router.navigate(['list/request/user']);
+    console.log("Nueva")
+  }
+
 
 }

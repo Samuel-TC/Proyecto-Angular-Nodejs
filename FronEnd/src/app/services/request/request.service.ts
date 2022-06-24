@@ -22,6 +22,8 @@ export class RequestService {
 
   url2:string= "http://localhost:4000/clasificadores/"; 
 
+  urlResponse:string= "http://localhost:4000/response/"; 
+
   constructor(private http:HttpClient) { }
 
   //               ----REQUEST----                      //
@@ -84,6 +86,12 @@ deleteFileById(id:string,token:any){
 getAllFiles(id:string,token:any):Observable<FileI[]>{
   let headers = new HttpHeaders().set('Authorization',token);
   return this.http.get<FileI[]>(this.url1+id,{headers});
+}
+
+response(form:RequestI,token:any):Observable<ResponseI>{
+  let headers = new HttpHeaders().set('Authorization',token);
+  console.log(form.idSolicitud)
+  return this.http.put<ResponseI>(this.urlResponse+form.idSolicitud,form,{ headers });
 }
 
 }

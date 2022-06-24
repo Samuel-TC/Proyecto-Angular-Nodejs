@@ -15,6 +15,7 @@
                     <th scope="col">Usuario</th>
                     <th scope="col">Palabra Clave</th>
                     <th scope="col">Cambios</th>
+                    <th scope="col">Responder</th>
                     <th scope="col">Archivos</th>
                     <th scope="col">Acciones</th>
                 </tr>
@@ -27,7 +28,10 @@
                     <td (click)="editRequest(request.idSolicitud)">{{ request.idUsuario }}</td>
                     <td (click)="editRequest(request.idSolicitud)">{{ request.palabraClave }}</td>
                     <td (click)="editRequest(request.idSolicitud)">{{ request.cantidadCambios }}</td>
-
+                    <td><button class="btn btn-success" (click)="response(request.idSolicitud)"
+                        style="background-color: rgb(130, 34, 34); padding-left: 20px; padding-right: 70px;">RESPONDER</button>
+                        
+                </td>
                     <td><button class="btn btn-success" (click)="verArchivos(request.idSolicitud)"
                             style="background-color: rgb(130, 34, 34); padding-left: 20px; padding-right: 55px;">VER</button>
                             

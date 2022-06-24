@@ -23,6 +23,8 @@ import { ListRequestUserComponent } from './views/views-request/list-request-use
 import { ListRequestAdminComponent } from './views/views-request/list-request-admin/list-request-admin.component';
 import { EditRequestComponent } from './views/views-request/edit-request/edit-request.component';
 import { ListFileComponent } from './views/views-request/list-file/list-file.component';
+import { ResponseComponent } from './views/views-response/response/response.component';
+import { ShowResponseComponent } from './views/views-response/show-response/show-response.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ListFileComponent } from './views/views-request/list-file/list-file.com
     ListRequestUserComponent,
     ListRequestAdminComponent,
     EditRequestComponent,
-    ListFileComponent
+    ListFileComponent,
+    ResponseComponent,
+    ShowResponseComponent
   ],
   imports: [
     BrowserModule,

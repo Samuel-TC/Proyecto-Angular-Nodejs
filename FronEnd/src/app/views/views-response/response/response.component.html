@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="container">
+    <div class="center">
+        <article class="card">
+            
+            <div class="card-inner">
+                <label class="title">Responder Solicitud</label>
+                <form [formGroup]="newForm" (ngSubmit)="postForm(newForm.value)" ngNativeValidate>
+                    <div >
+                        <div>
+                            <label>RESPUESTA</label>
+                            <label>DESCRIPCION</label>
+                            <input type="text" id="descripcion" placeholder="" formControlName="descripcion" required>
+
+                            <label>DETALLE</label>
+                            <textarea  type="text" id="detalleRespuesta" placeholder="" formControlName="detalleRespuesta" rows="6" cols="50" required>
+                            </textarea>
+                        </div>
+                        
+                    </div>
+
+                    <div class="margin"></div>
+                    <button type="submit" class="mask flex-center rgba-blue-light">RESPONDER</button>
+                </form>
+
+            </div>
+        </article>
+    </div>
+</div>
+<app-footer></app-footer>
