@@ -29,6 +29,7 @@ export class EditRequestComponent implements OnInit {
   //Values
   archivo: string = "";
   read: any = ""
+  rool:string;
 
   name = 'Angular ' + VERSION.major;
   @ViewChild('comentario') comentario: ElementRef;
@@ -44,6 +45,7 @@ export class EditRequestComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.rool= localStorage.getItem('rool')
     this.apiUser.getAllUsers(1, this.getToken()).subscribe(res => {
       this.users = res;
     });
@@ -52,7 +54,7 @@ export class EditRequestComponent implements OnInit {
       this.clasificadores = res;
     });
 
-    let id = this.active.snapshot.paramMap.get('id');
+    var id = this.active.snapshot.paramMap.get('id');
     this.apiR.getRequestById(id, this.getToken()).subscribe(data => {
       this.editForm.setValue({
         palabraClave: data.palabraClave,
@@ -95,7 +97,12 @@ export class EditRequestComponent implements OnInit {
             };
             this.apiR.postFile(file, this.getToken()).subscribe(data => { })
           }
-          this.router.navigate(['list/request/admin']);
+          if(this.rool== '2'){
+            this.router.navigate(['list/request/admin']);
+          }else{
+            this.router.navigate(['list/request/user']);
+          }
+         
         }
       }));
     } else {
@@ -119,6 +126,14 @@ export class EditRequestComponent implements OnInit {
       };
     } else {
       this.alert.alertError("El archivo es demasiado pesado");
+    }
+  }
+
+  exit(){
+    if(this.rool== '2'){
+      this.router.navigate(['list/request/admin']);
+    }else{
+      this.router.navigate(['list/request/user']);
     }
   }
 

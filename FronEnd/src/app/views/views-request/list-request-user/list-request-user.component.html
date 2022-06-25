@@ -3,9 +3,9 @@
     <div class="container">
 
         <label class="title1">My Requests</label>
-        <button class="mask flex-center rgba-blue-light" (click)="addRequest()">ADD</button>
-        <input id="buscar"  placeholder=""  required #buscar  (keyup)="buscarf($event)">
-        <button class="btn btn-success"   (click)="buscarb()"  >SEARCH</button>
+        <button class="mask flex-center rgba-blue-light" (click)="addRequest()">NUEVA</button>
+        <input id="buscar"  placeholder="Buscar solicitud..."  required #buscar  (keyup)="buscarf($event)">
+    
 
 
         <div class="row">
@@ -21,7 +21,7 @@
                     <div class="border">
 
                     <label class="subtitle" >RESPUESTA</label>
-                    <label *ngIf="request.idRespuesta == null " class="description" style="color: rgb(255, 51, 0);">Sin respueta...</label>
+                    <label *ngIf="(request.idRespuesta == null) || (request.idRespuesta == '1')" class="description" style="color: rgb(255, 51, 0);">Sin respueta...</label>
                     <input type="button" *ngIf="request.idRespuesta != null " class="show" style="background-color: rgb(43, 8, 38); color: azure; padding-right: 120px;"  (click)="show(request.idSolicitud)" value="Ver Respuesta">
                    
                     <label class="subtitle" >FECHA</label>

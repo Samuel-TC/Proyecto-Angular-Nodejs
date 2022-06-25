@@ -8,17 +8,17 @@
                
 
                 <div class="row">
-                    <div class="circle col-sm-6 "  style="margin: 20px;"> <img  src="https://www.marketingmuses.com/wp-content/uploads/2018/01/invis-user.png" alt="Trulli" ></div> 
-                    <li class="nav-item col-sm-2 ">  <a class="nav-link" href="#">   </a > samue@tinoco.com </li>
+                    <div class="circle col-sm-6 "  style="margin: 20px;"> <img *ngIf="foto == null" src="https://www.marketingmuses.com/wp-content/uploads/2018/01/invis-user.png" alt="Trulli" > <img *ngIf="foto != null" src="{{foto}}" alt="Trulli" ></div> 
+                    <li class="nav-item col-sm-3 "> <a class="nav-link" style="color: white;" > {{idUser}}  </a > </li>
                     
                 </div>
                 <div class="chat">
-                    <label class="nav-item col-sm-2 "> DESCRIPCION: <a class="nav-link" >   Modificados  </a > </label>
-                        <label class="nav-item col-sm-2 ">  DETALLE: <a class="nav-link" > se dened dsdsdkd dsdsd ddsd dsdsd  </a >  </label>
-                    <label class="nav-item col-sm-2 ">  <a class="nav-link" > fecha(2020/20/01)  </a >  </label>
+                    <label class="nav-item col-sm-2 "> DESCRIPCION: <a class="nav-link" >   {{description}}  </a > </label>
+                        <label class="nav-item col-sm-2 ">  DETALLE: <a class="nav-link" >  {{detail}}  </a >  </label>
+                    <label class="nav-item col-sm-2 "> FECHA  <a class="nav-link" > {{date}}  </a >  </label>
 
                 </div>
-                <button >REGRESAR</button>
+                <button (click)="exit()"  style="background: #010024;">VOLVER</button>
             </div>
         </article>
     </div>

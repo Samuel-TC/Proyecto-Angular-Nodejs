@@ -2,12 +2,14 @@
 <app-header></app-header>
 
 <div class="container">
+   
     <div class="center">
+        <button (click)="exit()" class="exit" >X</button>
         <article class="card">
-            
+          
             <div class="card-inner">
                 <label class="title">Editar Solicitud</label>
-
+               
                 <form [formGroup]="editForm" (ngSubmit)="putForm(editForm.value)" ngNativeValidate>
                     <div class="row">
                         <div class="col-6">
@@ -42,7 +44,7 @@
                     </div>
 
                     <div class="margin"></div>
-                    <button type="submit" class="mask flex-center rgba-blue-light">EDIT</button>
+                    <button type="submit" class="mask flex-center rgba-blue-light">EDITAR</button>
                 </form>
 
             </div>

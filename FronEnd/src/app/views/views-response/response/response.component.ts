@@ -51,7 +51,7 @@ export class ResponseComponent implements OnInit {
       this.apiR.response(form,this.getToken()).subscribe( data=>{
         console.log(data)
       });
-      this.router.navigate(['list/request/user']);
+      this.router.navigate(['list/request/admin']);
     }else{
       
       this.errorStatus=true;
@@ -64,4 +64,9 @@ export class ResponseComponent implements OnInit {
     return localStorage.getItem('token');
   }
 
+  exit() {
+  
+      this.router.navigate(['list/request/admin']);
+    
+  }
 }

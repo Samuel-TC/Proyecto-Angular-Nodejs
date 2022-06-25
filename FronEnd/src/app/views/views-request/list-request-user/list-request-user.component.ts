@@ -121,7 +121,7 @@ export class ListRequestUserComponent implements OnInit, OnDestroy {
   }
 
   show(idSoli: string){
-    this.alert.alertSuccess("RESPUESTAS")
+    this.router.navigateByUrl('/show/response/'+idSoli);
   }
 
   edit(idSoli: string){

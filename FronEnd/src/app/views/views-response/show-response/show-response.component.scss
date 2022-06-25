@@ -5,7 +5,7 @@ $font-text-label: 1.1em sans-serif;
 $font-text-title:2.2em sans-serif;
 
 .center{
-    margin-top: 9%;
+    margin-top: 6%;
     margin-left: 6%;
     /* IMPORTANTE */
     text-align: center;   
@@ -13,7 +13,7 @@ $font-text-title:2.2em sans-serif;
 
 .card{
     width: 1150px;
-    height: 650px;
+    height: 600px;
     position: relative;
    
 }
@@ -152,12 +152,13 @@ select{
 }
 
 .circle{
-    width: 100px;
+    width: 80px;
     height: 80px;
     background: #25002e;
     border-radius: 20px 20px 20px 20px ;
     position: relative;  
     text-align: center;
+    padding: 0;
    
 }
 
@@ -165,6 +166,7 @@ img{
     width: 81px;
     height: 79px;
     border-radius: 17px 20px 20px 20px ;  
+    
 }
 .username{
     color: #150036;
@@ -191,10 +193,12 @@ li{
 }
 
 .chat{
-    border: solid 1px  rgb(202, 95, 95) ;
+    
     margin: 20px;
     margin-top: 70px;
     margin-left: 100px;
+    box-shadow: 2px 2px rgb(202, 95, 95) ;
     border-radius: 25px;
-    background-color: #e8feff;
+    background-color: #f5f8ffe9;
 }
+

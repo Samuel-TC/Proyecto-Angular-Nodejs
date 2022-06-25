@@ -1,6 +1,7 @@
 <app-header></app-header>
 <div class="container">
     <div class="center">
+        <button (click)="exit()" class="exit" >X</button>
         <article class="card">
             
             <div class="card-inner">
@@ -9,9 +10,13 @@
                     <div >
                         <div>
                             <label>RESPUESTA</label>
-                            <label>DESCRIPCION</label>
-                            <input type="text" id="descripcion" placeholder="" formControlName="descripcion" required>
-
+                            <label>RESPUESTA LEGAL</label>
+                            <select type="text" id="descripcion" placeholder="" formControlName="descripcion" required>
+                                <option value="" selected>SELECIONE</option>
+                                <option value="1" >Pendiente</option>
+                                <option value="2" selected>Resuelto</option>
+                                <option value="3" selected>Ampliar Solicitud</option>
+                            </select>
                             <label>DETALLE</label>
                             <textarea  type="text" id="detalleRespuesta" placeholder="" formControlName="detalleRespuesta" rows="6" cols="50" required>
                             </textarea>

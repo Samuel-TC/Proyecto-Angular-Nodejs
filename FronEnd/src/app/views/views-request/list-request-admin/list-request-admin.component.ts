@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { RequestService } from '../../../services/request/request.service';
 import { AlertsService } from '../../../services/alerts/alerts.service';
 
-import { Subject } from 'rxjs';
 import { RequestI } from '../../../models/request.interface'
 
 @Component({
