@@ -81,3 +81,10 @@ export class ListRequestAdminComponent implements OnInit, OnDestroy {
   }
 
 }
+
+//npm install -g ionic
+//ionic -v
+//node -v
+//npm -v
+//ionic start tabsProject tabs
+//ionic serve

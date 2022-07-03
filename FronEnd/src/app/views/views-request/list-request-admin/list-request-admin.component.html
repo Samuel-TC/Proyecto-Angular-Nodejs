@@ -23,8 +23,10 @@
             <tbody>
                 <tr *ngFor="let request of requests">
                     
-                    <th scope="row">{{ request.idSolicitud }}</th>
-                    <td (click)="editRequest(request.idSolicitud)">{{ request.fechaHora }}</td>
+                    <th scope="row" *ngIf="request.idRespuesta == '1' || request.idRespuesta == null" style="background: #f35757;">{{ request.idSolicitud }}</th>
+                    <th scope="row"  *ngIf="request.idRespuesta == '2'" style="background: #30f264;">{{ request.idSolicitud }}</th>
+                    <th scope="row"  *ngIf="request.idRespuesta == '3'" style="background: #f2fa03;">{{ request.idSolicitud }}</th>
+                    <td (click)="editRequest(request.idSolicitud)">{{ request.fechaHora | date:'dd-MM-yyyy hh:mm' }}</td>
                     <td (click)="editRequest(request.idSolicitud)">{{ request.idUsuario }}</td>
                     <td (click)="editRequest(request.idSolicitud)">{{ request.palabraClave }}</td>
                     <td (click)="editRequest(request.idSolicitud)">{{ request.cantidadCambios }}</td>
@@ -46,7 +48,12 @@
 
         <button class="btn btn-success" (click)="ant()">Ant</button>
         <button class="btn btn-success" (click)="sig()">Sig</button>
-        
-    </div>
+        <div class="row" style="margin-top: 30px; ">
+            <div class="col-3" style="background: #f35757; width: 20px; height: 20px; margin-right: 100px; border-radius: 100%;" > <label style="margin-left: 20px;">Pendiente</label></div>
+            <div class="col-3" style="background: #30f264;width: 20px; height: 20px; margin-right: 100px; border-radius: 100%;" ><label style="margin-left: 20px;">Resuelto</label></div>
+            <div class="col-4" style="background: #f2fa03;width: 20px; height: 20px; margin-right: 100px; border-radius: 100%;"><label style="margin-left: 20px; ">Ampliar</label></div>
+        </div>
+    </div >
 
+   
 <app-footer></app-footer>

@@ -10,7 +10,6 @@ import { HeaderComponent } from './templates/header/header.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { DataTablesModule } from "angular-datatables";
 
 import { MenuComponent } from './views/menu/menu.component';
 import { DepartamentComponent } from './views/views-department/department/departament.component';
@@ -50,7 +49,6 @@ import { ShowResponseComponent } from './views/views-response/show-response/show
   ],
   imports: [
     BrowserModule,
-    DataTablesModule,
     AppRoutingModule,
     ReactiveFormsModule, 
     FormsModule,

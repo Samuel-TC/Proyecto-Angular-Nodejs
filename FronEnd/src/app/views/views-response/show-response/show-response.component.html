@@ -15,7 +15,7 @@
                 <div class="chat">
                     <label class="nav-item col-sm-2 "> DESCRIPCION: <a class="nav-link" >   {{description}}  </a > </label>
                         <label class="nav-item col-sm-2 ">  DETALLE: <a class="nav-link" >  {{detail}}  </a >  </label>
-                    <label class="nav-item col-sm-2 "> FECHA  <a class="nav-link" > {{date}}  </a >  </label>
+                    <label class="nav-item col-sm-2 "> FECHA  <a class="nav-link" > {{date | date:'dd/MM/yyyy hh:mm'}}  </a >  </label>
 
                 </div>
                 <button (click)="exit()"  style="background: #010024;">VOLVER</button>
