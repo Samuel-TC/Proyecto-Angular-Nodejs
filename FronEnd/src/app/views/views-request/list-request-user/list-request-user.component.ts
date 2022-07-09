@@ -101,6 +101,8 @@ export class ListRequestUserComponent implements OnInit, OnDestroy {
       console.log(res.length);
       if(res.length>0){
         this.requests = res;
+      }else{
+        this.alert.alertError('Sin resultados')
       }
      
     });

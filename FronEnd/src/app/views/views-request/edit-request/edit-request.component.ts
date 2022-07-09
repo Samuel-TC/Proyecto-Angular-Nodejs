@@ -22,6 +22,7 @@ export class EditRequestComponent implements OnInit {
   errorStatus = false;
   errorMs = '';
   dataRequest: RequestI | any;
+  formValid: boolean = true;
 
   users: UserI[] = [];
   clasificadores: ClasificadorI[] = [];
@@ -29,7 +30,7 @@ export class EditRequestComponent implements OnInit {
   //Values
   archivo: string = "";
   read: any = ""
-  rool:string;
+  rool: string;
 
   name = 'Angular ' + VERSION.major;
   @ViewChild('comentario') comentario: ElementRef;
@@ -40,12 +41,14 @@ export class EditRequestComponent implements OnInit {
     palabraClave: new FormControl('', [Validators.required]),
     asuntoDetallado: new FormControl('', [Validators.required]),
     idClasificador: new FormControl('', [Validators.required]),
+    comentario: new FormControl('', [Validators.required]),
+    archivo: new FormControl('', [Validators.required]),
 
   });
 
   ngOnInit(): void {
 
-    this.rool= localStorage.getItem('rool')
+    this.rool = localStorage.getItem('rool')
     this.apiUser.getAllUsers(1, this.getToken()).subscribe(res => {
       this.users = res;
     });
@@ -97,17 +100,18 @@ export class EditRequestComponent implements OnInit {
             };
             this.apiR.postFile(file, this.getToken()).subscribe(data => { })
           }
-          if(this.rool== '2'){
+          if (this.rool == '2') {
             this.router.navigate(['list/request/admin']);
-          }else{
+          } else {
             this.router.navigate(['list/request/user']);
           }
-         
+
         }
       }));
     } else {
       this.errorStatus = true;
       this.errorMs = "Ingrese todos los campos!"
+      this.formValid = false;
     }
 
   }
@@ -129,10 +133,10 @@ export class EditRequestComponent implements OnInit {
     }
   }
 
-  exit(){
-    if(this.rool== '2'){
+  exit() {
+    if (this.rool == '2') {
       this.router.navigate(['list/request/admin']);
-    }else{
+    } else {
       this.router.navigate(['list/request/user']);
     }
   }

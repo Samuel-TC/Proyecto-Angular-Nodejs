@@ -13,37 +13,52 @@
                 <form [formGroup]="editForm" (ngSubmit)="putForm(editForm.value)" ngNativeValidate>
                     <div class="row">
                         <div class="col-6">
-                            <label>DATOS DE LA SOLICITUD</label>
-                            <label>PALABRA CLAVE</label>
-                            <input type="text" id="palabraClave" placeholder="" formControlName="palabraClave" required>
 
-                            <label>ASUNTO</label>
-                            <input type="text" id="asuntoDetallado" placeholder="" formControlName="asuntoDetallado" required>
+                            <label *ngIf="formValid">DATOS DE LA SOLICITUD</label>
+                            <label *ngIf="!formValid" style="color: red;">CAMPOS OBLIGATORIOS*</label>
+                       
+                            <label *ngIf="formValid && editForm.get('palabraClave')?.value == ''" >PALABRA CLAVE</label>
+                            <label *ngIf="editForm.get('palabraClave')?.value == '' && !formValid" style="color: red;">PALABRA CLAVE*</label>
+                            <label *ngIf="editForm.get('palabraClave')?.value != ''" style="color: green;">PALABRA CLAVE ✔</label>
+                            <input type="text" id="palabraClave" placeholder="" formControlName="palabraClave" >
 
-                            <label>CLASIFICADOR</label>
-                            <select type="text" id="idClasificador" placeholder="" formControlName="idClasificador" required>
+                            <label *ngIf="formValid && editForm.get('asuntoDetallado')?.value == ''">ASUNTO</label>
+                            <label *ngIf="editForm.get('asuntoDetallado')?.value == '' && !formValid" style="color: red;">ASUNTO*</label>
+                            <label *ngIf="editForm.get('asuntoDetallado')?.value != ''" style="color: green;">ASUNTO ✔</label>
+                            <input type="text" id="asuntoDetallado" placeholder="" formControlName="asuntoDetallado" >
+
+                            <label *ngIf=" formValid &&  editForm.get('idClasificador')?.value == ''">CLASIFICADOR</label>
+                            <label *ngIf="editForm.get('idClasificador')?.value == '' && !formValid" style="color: red;">CLASIFICADOR*</label>
+                            <label *ngIf="editForm.get('idClasificador')?.value != ''" style="color: green;">CLASIFICADOR ✔</label>
+                            <select type="text" id="idClasificador" placeholder="" formControlName="idClasificador" >
                                 <option value="" selected>Select</option>
                                 <option *ngFor="let clasificador of clasificadores " value="{{clasificador.idClasificador}}">{{clasificador.descripcion}}
                                 </option>
                             </select>
-
+ 
                         </div>
                         
                         <div class="col-6">
+
                             <label></label>
                             <label></label>
+                            
                             <label>DATOS DEL DOCUMENTO</label>
                 
-                            <label>DOCUMENTO</label>
-                            <input type = "file" (change) = "handleUpload($event)" id = "archivo" accept = "application/pdf" placeholder = ""  >
+                            <label *ngIf=" formValid &&  editForm.get('file')?.value == null">DOCUMENTO</label>
+                            <label *ngIf="editForm.get('file')?.value == null && !formValid" style="color: red;">DOCUMENTO*</label>
+                            <label *ngIf="editForm.get('file')?.value != null" style="color: green;">DOCUMENTO ✔</label>
+                            <input type = "file" (change) = "handleUpload($event)" id = "archivo"  formControlName="archivo" accept = "application/pdf" placeholder = "" >
 
-                            <label>COMENTARIO</label>
-                            <input type="text" id="comentario" #comentario placeholder="" >
-
+                            <label *ngIf=" formValid &&  editForm.get('comentario')?.value == ''" >COMENTARIO</label>
+                            <label *ngIf="editForm.get('comentario')?.value == '' && !formValid" style="color: red;">COMENTARIO*</label>
+                            <label *ngIf="editForm.get('comentario')?.value != ''" style="color: green;">COMENTARIO ✔</label>
+                            <input type="text" id="comentario" formControlName="comentario" #comentario placeholder="" >
+    
                         </div>
                     </div>
 
-                    <div class="margin"></div>
+                    <div class="margin"> </div>
                     <button type="submit" class="mask flex-center rgba-blue-light">EDITAR</button>
                 </form>
 

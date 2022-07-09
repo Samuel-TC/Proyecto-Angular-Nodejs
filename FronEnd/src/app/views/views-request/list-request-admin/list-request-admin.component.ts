@@ -13,6 +13,7 @@ import { RequestI } from '../../../models/request.interface'
 export class ListRequestAdminComponent implements OnInit, OnDestroy {
 
   //List REQUEST
+  pag:any =1;
   requests: RequestI[] = [];
 
   constructor(private api: RequestService, private router: Router, private alert: AlertsService) { }
@@ -64,20 +65,35 @@ export class ListRequestAdminComponent implements OnInit, OnDestroy {
     return localStorage.getItem('token');
   }
 
-  ant() {
-
-  }
-
-  sig() {
-
-  }
-
   verArchivos(id:string){
     this.router.navigateByUrl('request/files/'+id);
   }
 
   response(id: string) {
     this.router.navigate(['response', id])
+  }
+
+  ant() {
+    if (this.pag - 1 > 0) {
+      this.pag=this.pag-1;
+      this.api.getRequestByIdUser(localStorage.getItem("idUsuario")+','+this.pag,this.getToken()).subscribe(res => {
+        this.requests = res;
+       
+      });
+    }
+  }
+
+  sig() {
+    
+    this.api.getRequestByIdUser(localStorage.getItem("idUsuario")+','+this.pag,this.getToken()).subscribe(res => {
+      console.log(res.length);
+      if(res.length>0){
+        this.requests = res;
+        this.pag=this.pag+1;
+      }
+    
+     
+    });
   }
 
 }

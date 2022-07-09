@@ -23,6 +23,7 @@ export class RequestComponent implements OnInit {
   errorStatus = false;
   errorMs = '';
   dataRequest: RequestI | any;
+  formValid:boolean=true;
 
   users: UserI[] = [];
   clasificadores: ClasificadorI[] = [];
@@ -43,6 +44,8 @@ export class RequestComponent implements OnInit {
     palabraClave: new FormControl('', [Validators.required]),
     asuntoDetallado: new FormControl('', [Validators.required]),
     idClasificador: new FormControl('', [Validators.required]),
+    comentario: new FormControl('',[Validators.required]),
+    archivo: new FormControl( '',[Validators.required]),
 
   });
   ngOnInit(): void {
@@ -87,6 +90,7 @@ export class RequestComponent implements OnInit {
     } else {
       this.errorStatus = true;
       this.errorMs = "Ingrese todos los campos!"
+      this.formValid= false;
     }
   }
 
